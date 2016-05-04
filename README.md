@@ -2,14 +2,20 @@
 Chrome Extension to track the capital gain of the shares within the "We Share" operation.
 
 ## Features
-* AES-256 encryption for data storage
-* i18n (Internationalization)
+* Simple and intuitive interface,
+   * A personalized calculation of your profits,
+   * Direct access to your Amoundi account,
+* Clear visualization of the evolution of the share value on the stock exchange,
+* Updated in real time,
+* AES-256 encryption for data storage,
+* i18n (Internationalization),
     * en
     * fr
 
 ## Install a Chrome Extension
 ### From the Chrome Web Store
-*
+* https://chrome.google.com/webstore/detail/we-share-op/nobbmhfbgoapjobjbipoagpahklgkpch
+
 ### Help
 * https://support.google.com/chrome_webstore/answer/2664769
 
