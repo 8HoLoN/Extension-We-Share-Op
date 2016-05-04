@@ -1,0 +1,361 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>We Share Op.</title>
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Give+You+Glory">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="../lib/bootstrap/3.3.6/css/bootstrap.min.css" >
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="../lib/bootstrap/3.3.6/css/bootstrap-theme.min.css" >
+		<style type="text/css">
+			body{
+				background-color: snow;/* snow ivory */
+			}
+			#mainPopup {
+				padding: 10px;
+				height: 200px;
+				width: 650px;/* 767 */
+				font-family: Helvetica, Ubuntu, Arial, sans-serif;
+			}
+			h1 {
+				font-size: 2em;
+			}
+			.container{
+				width:100%;
+				_margin:auto;
+			}
+			/* glyphicon style */
+			.glyphicon {
+				font-size: 20px;
+			}
+			a.bicon{
+				padding: 0px 40px !important;/* 6 16 */
+			}
+			a.bicon span{
+				line-height: 2.0em !important;/* 25/1.6 20/2.0 30/1.35 */
+			}
+			/* bullet */
+			.custom-bullet li{
+				list-style-type: none;
+			}
+			.custom-bullet li:before{
+				/*Using a Bootstrap glyphicon as the bullet point*/
+				content: "\e080";
+				font-family: 'Glyphicons Halflings';
+				font-size: 9px;
+				float: left;
+				margin-top: 4px;
+				margin-left: -17px;
+				color: #CCCCCC;
+			}
+			/* form */
+			.form-horizontal .control-label{
+				padding-top: 7px;
+				margin-bottom: 0;
+				text-align: right;
+			}
+			.cursor-pointer{
+				cursor:pointer;
+			}
+
+			.logo-title h1{
+				display: inline-block;
+				text-align: center;
+		    font-family: 'Give You Glory';
+				/* font-family: 'Cedarville Cursive'; */
+				/* font-size: 26px; */
+				font-style: italic;
+				font-variant: small-caps;
+				font-weight: bold;
+				line-height: 23px;
+				_background-color: lightgrey;
+				color: white;
+
+				_padding: 5px 60px 5px 60px;
+				padding: 5px 190px 5px 190px;
+    		margin: 20px;
+    		    font-size: 2em;
+			}
+			.logo-title h1:hover{
+				_background-color: lightsteelblue;
+			}
+			.center{
+				text-align: center;
+			}
+		</style>
+
+
+	</head>
+	<body>
+		<div id="mainPopup">
+			
+				<div class="logo-title center">
+					<h1 class="btn btn-primary">We <img style="width: 34px;margin-right: -6px;" src="../icons/icon48.png">hare Op.</h1>
+				</div>
+
+			<div class="container">
+				<div style="text-align: center;">
+					<ul class="nav nav-tabs" style="display: inline-block;"><!-- nav-justified -->
+						<!--<li class="active"><a data-toggle="tab" href="#home">Home</a></li>-->
+						<li class="active">
+							<a data-toggle="tab" href="#statsTab" class="bicon">
+								<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+								<span class="sr-only">Stats:</span>
+							</a>
+						</li>
+						<li>
+							<a data-toggle="tab" href="#configTab" class="bicon">
+								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+								<span class="sr-only">Config:</span>
+							</a>
+						</li>
+						<li>
+							<a data-toggle="tab" href="#infoTab" class="bicon">
+								<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+								<span class="sr-only">Info:</span>
+							</a>
+						</li>
+						<li>
+							<a data-toggle="tab" href="#aboutTab" class="bicon">
+								<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+								<span class="sr-only">About:</span>
+							</a>
+						</li>
+					</ul>					
+				</div>
+
+				
+				<div class="tab-content">
+					<div id="statsTab" class="tab-pane fade in active">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 id="wso-statsTabLabel" class="panel-title">Stats</h3>
+							</div>
+							<div class="panel-body">
+								<form class="form-horizontal" role="form">
+									<div class="form-group">
+										<label id="wso-sharesValueLabel" for="wso-sharesValue" class="control-label col-xs-3">Valeur de l'action</label>
+										<div class="col-xs-3">
+											<input id="wso-sharesValue" class="form-control" type="text" value="--.--€" readonly disabled >
+										</div>
+										<label id="wso-investmentValueLabel" for="wso-investmentValue" class="control-label col-xs-3">Valorisation</label><!-- valeur de l'investissement / valorisation-->
+										<div class="col-xs-3">
+											<input id="wso-investmentValue" class="form-control" type="text" value="--.--€" readonly disabled >
+										</div>
+									</div>
+									<div class="form-group">
+										<label id="wso-capitalGainLabel" for="wso-capitalGain" class="control-label col-xs-3">Plus value</label>
+										<div class="col-xs-3">
+											<input id="wso-capitalGain" class="form-control" type="text" value="--.--€" readonly disabled >
+										</div>
+										<label id="wso-overallGainLabel" for="wso-overallGain" class="control-label col-xs-3">Plus value global</label>
+										<div class="col-xs-3">
+											<input id="wso-overallGain" class="form-control" type="text" value="--.--€" readonly disabled >
+										</div>
+									</div>
+								</form>
+								<!--
+								<div id="legal" class="small" style="text-align: justify;">
+									* Clauses de non-responsabilité : les valeurs des montants des gains ne sont données qu'à titres informatives et n'engage nullement l'auteur, aucunes poursuites ne pourra être intenté à son encontre en cas de litige.
+								</div>
+								-->
+							</div>
+						</div>
+					</div>
+					<div id="configTab" class="tab-pane fade">
+						<div class="panel-group" id="accordion">
+							<div class="panel panel-default">
+								<div class="panel-heading cursor-pointer" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+									<h4 class="panel-title">
+										<a id="wso-sharesTabLabel">Actions</a>
+									</h4>
+								</div>
+								<div id="collapse1" class="panel-collapse collapse in">
+									<div class="panel-body">
+										<form class="form-horizontal" role="form">
+											<div class="form-group">
+												<label id="wso-numberOfSharesPurchasedLabel" for="wso-numberOfSharesPurchased" class="control-label col-xs-3">Actions achetées</label>
+												<div class="col-xs-3">
+													<select class="form-control" id="wso-numberOfSharesPurchased">
+														<option>1</option>
+														<option>2</option>
+														<option>3</option>
+														<option>4</option>
+														<option>5</option>
+														<option>6</option>
+														<option>7</option>
+														<option>8</option>
+														<option>9</option>
+														<option>10</option>
+														<option>11</option>
+														<option>12</option>
+														<option>13</option>
+														<option>14</option>
+														<option>15</option>
+													</select>
+												</div>
+												<label id="wso-numberOfSharesAcquiredLabel" for="wso-numberOfSharesAcquired" class="control-label col-xs-3">Actions acquises</label>
+												<div class="col-xs-3">
+													<input id="wso-numberOfSharesAcquired" class="form-control" type="text" placeholder="" readonly disabled data-toggle="tooltip" title="Shares purchased x2" >
+												</div>
+											</div>
+											<div class="form-group">
+												<label id="wso-buyingPriceLabel" for="wso-buyingPrice" class="control-label col-xs-3">Prix d'achat</label>
+												<div class="col-xs-3">
+													<input id="wso-buyingPrice" class="form-control" type="text" value="101.62€" readonly disabled >
+												</div>
+												<label id="wso-amountOfInvestmentLabel" for="wso-amountOfInvestment" class="control-label col-xs-3">Investissement</label>
+												<div class="col-xs-3">
+													<input id="wso-amountOfInvestment" class="form-control" type="text" value="3182.7384€" readonly disabled >
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading cursor-pointer" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+									<h4 class="panel-title">
+										<a id="wso-amundiAccountTabLabel">Connexion à Amundi</a>
+									</h4>
+								</div>
+								<div id="collapse3" class="panel-collapse collapse">
+									<div class="panel-body">
+										<form class="form-horizontal" role="form">
+											<div class="form-group">
+												<label id="wso-amundiLoginLabel" for="wso-amundiLogin" class="control-label col-xs-3">Name</label>
+												<div class="col-xs-9">
+													<input id="wso-amundiLogin" type="text" class="form-control" placeholder="Enter login">
+												</div>
+											</div>
+											<div class="form-group">
+												<label id="wso-amundiPasswordLabel" for="wso-amundiPassword" class="control-label col-xs-3">Password</label>
+												<div class="col-xs-9">
+													<input id="wso-amundiPassword" type="password" class="form-control"  placeholder="Enter password">
+												</div>
+											</div>
+										</form>
+										<div class="col-xs-offset-3">
+											<a id="wso-amundiAccess" class="btn btn-default"></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- ? menu aide supported
+						feedback
+						contact
+						retour sur l'application
+						suggerer des evolutions
+						-->
+						<!-- http://seiyria.com/bootstrap-slider/ 
+						<input id="ex8" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14"/>
+						-->
+						
+					</div>
+					<div id="infoTab" class="tab-pane fade">
+
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 id="wso-infoTabLabel" class="panel-title">Marché : Euronext Paris (EPA:)</h3>
+							</div>
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-xs-6">
+										<ul>
+											<li>Ouverture :
+												<ul class="custom-bullet">
+													<li>Du lundi au vendredi</li>
+												</ul>
+											</li>
+											<li>Horaires :
+												<ul class="custom-bullet">
+													<li>Préouverture : 7h15 à 9h00</li>
+													<li>Séance : 9h00 à 17h30</li>
+													<li>Préclôture : 17h30 à 17h35</li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+									<div class="col-xs-6">
+										<ul>
+											<li>Sauf :
+												<ul class="custom-bullet">
+													<li>Vendredi Saint</li>
+													<li>Lundi de Pâques</li>
+													<li>1er mai (Fête du travail)</li>
+													<li>25 décembre (Noël)</li>
+													<li>26 décembre (lendemain de Noël)</li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="aboutTab" class="tab-pane fade">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 id="wso-aboutTabLabel" class="panel-title">About</h3>
+							</div>
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-xs-8">
+										<ul class="custom-bullet">
+											<li>Version: 0.0.3</li>
+											<li>Links:
+												<ul>
+													<li>
+														<a href="https://github.com/8HoLoN/Extension-We-Share-Op" target="_blank" >
+															Github repository
+														</a>
+													</li>
+													<li><!-- https://chrome.google.com/webstore/detail/?hl=fr -->
+														<a href="https://chrome.google.com/webstore/detail/we-share-op/nobbmhfbgoapjobjbipoagpahklgkpch/reviews" target="_blank" >
+															Chrome Web Store page
+														</a>
+													</li>
+												</ul>
+											</li>
+											<li>Feedback & suggestions:
+												<ul>
+													<li>
+														<a id="wso-feedback" href="#" target="_top" >
+
+														</a>
+													</li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+									<div class="col-xs-4" style="position: absolute;bottom: 30px;right: 25px;">
+										<blockquote class="blockquote-reverse" style="margin-bottom: 0;">
+											<p>We share hope.</p>
+											<footer>Alexandre REMY<!--<cite title="Source Title">Source Title</cite>--></footer>
+										</blockquote>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script type="text/javascript" src="../lib/jquery/jquery-2.2.3.min.js" ></script>
+		<script type="text/javascript" src="../lib/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="./browser_action.js"></script>
+	</body>
+</html>
+
+
+<!--
+cotation au continu / fixing 11h30 et 16h30
+-->
