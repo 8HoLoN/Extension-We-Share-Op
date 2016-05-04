@@ -14,7 +14,8 @@ Chrome Extension to track the capital gain of the shares within the "We Share" o
 
 ## Install a Chrome Extension
 ### From the Chrome Web Store
-*
+* https://chrome.google.com/webstore/detail/we-share-op/nobbmhfbgoapjobjbipoagpahklgkpch
+
 ### Help
 * https://support.google.com/chrome_webstore/answer/2664769
 
