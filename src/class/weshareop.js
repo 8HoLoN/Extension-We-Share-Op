@@ -71,6 +71,7 @@
 					console.log(_items);
 					console.log(sjcl.decrypt("wso"+chrome.runtime.id,_items.wsoUserData));
 					that.userData = JSON.parse(sjcl.decrypt("wso"+chrome.runtime.id,_items.wsoUserData));
+					that.updateFinanceData();
 				}catch (e){
 					console.log(e);
 				}
