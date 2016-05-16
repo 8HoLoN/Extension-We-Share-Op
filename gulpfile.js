@@ -6,6 +6,7 @@ const del = require('del');
 const merge = require('merge-stream');
 const jsonminify = require('gulp-jsonminify');
 const uglify = require('gulp-uglify');
+const zip = require('gulp-zip');
 
 
 gulp.task('default',['build'], function() {
@@ -47,6 +48,7 @@ gulp.task('build',['clean:build'], function() {
 
     return merge([mainStream,libStream,manifestStream,jsStream])
         .pipe(zipFilter)
+        .pipe(zip('build.zip',{compress:true}))
         .pipe(gulp.dest('build/'));
     //return gulp.src('./src/js/**/*.js')
      //   .pipe(gulp.dest('./dist/'));

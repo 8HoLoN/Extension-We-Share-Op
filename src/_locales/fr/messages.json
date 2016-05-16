@@ -85,5 +85,21 @@
   "aboutTabLabel": {
     "message": "À Propos",
     "description": "Nom de l'onglet à propos."
+  },
+  "versionLabel": {
+    "message": "Version :",
+    "description": "Libellé pour la version de l'extension."
+  },
+  "links": {
+    "message": "Liens :",
+    "description": "Libellé pour la section des liens."
+  },
+  "reviews": {
+    "message": "Évaluer l'extension sur le Chrome Web Store",
+    "description": "Libellé pour l'accès à la page d'évaluation de l'extension sur le Chrome Web Store."
+  },
+  "feedbackLabel": {
+    "message": "Retours & suggestions :",
+    "description": "Label for feedback and suggestions."
   }
 }

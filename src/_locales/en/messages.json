@@ -85,5 +85,21 @@
   "aboutTabLabel": {
     "message": "About",
     "description": "Name of the about tab."
+  },
+  "versionLabel": {
+    "message": "Version:",
+    "description": "Label for the extension version."
+  },
+  "links": {
+    "message": "Links:",
+    "description": "Label for links section."
+  },
+  "reviews": {
+    "message": "Rate this extension on the Chrome Web Store",
+    "description": "Link message for the Chrome Web Store reviews page."
+  },
+  "feedbackLabel": {
+    "message": "Feedback & suggestions:",
+    "description": "Label for feedback and suggestions."
   }
 }

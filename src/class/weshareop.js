@@ -21,7 +21,7 @@
 			},
 			amundiAccount : {
 				login : '',
-				pwd : '',
+				pwd : ''
 			}
 		};
 
@@ -34,7 +34,7 @@
 			date:'',
 			value:'',
 			changePoint:'',
-			changePercent:'',
+			changePercent:''
 		};
 
 		// amundi
@@ -109,8 +109,20 @@
 		_gEBI("wso-infoTabLabel").innerHTML = _gM("infoTabLabel");
 		_gEBI("wso-aboutTabLabel").innerHTML = _gM("aboutTabLabel");
 
-		_gEBI("wso-feedback").href = "mailto:"+"8holon"+"@"+"gmail.com?Subject=Feedback";
-		_gEBI("wso-feedback").innerHTML = "8holon"+"&#64;"+"gmail.com";
+		//_gEBI("wso-feedback").href = "mailto:"+"8holon"+"@"+"gmail.com?Subject=Feedback";
+		//_gEBI("wso-feedback").innerHTML = "8holon"+"&#64;"+"gmail.com";
+		_gEBI("wso-feedback").href = "mailto:"+"alexandre.remy.contact"+"@"+"gmail.com?Subject=Feedback";
+		_gEBI("wso-feedback").innerHTML = "alexandre.remy.contact"+"&#64;"+"gmail.com";
+
+		var manifest = chrome.runtime.getManifest();
+		_gEBI("wso-version").innerHTML = manifest.version;
+
+		_gEBI("wso-versionLabel").innerHTML = _gM("versionLabel");
+		_gEBI("wso-links").innerHTML = _gM("links");
+		_gEBI("wso-reviews").innerHTML = _gM("reviews");
+		_gEBI("wso-feedbackLabel").innerHTML = _gM("feedbackLabel");
+
+
 	};
 
 	WeShareOp.prototype.displayData = function(_window){
@@ -162,7 +174,7 @@
 
 			that.saveData();
 			that.displayData(_window);
-			that.displayBagdeText();
+			that.displayBadgeText();
 		});
 	};
 
@@ -282,7 +294,7 @@
 		this.getPriceUpdates(()=>{
 			console.log('priceUpdate',new Date());
 
-			this.displayBagdeText();
+			this.displayBadgeText();
 			if( this._window!==null ){
 				this.displayData(this._window);
 			}
@@ -291,7 +303,7 @@
 		});
 	};
 
-	WeShareOp.prototype.displayBagdeText = function(){
+	WeShareOp.prototype.displayBadgeText = function(){
 		var _gain = (this.financeData.value - this.BUYING_PRICE)*this.userData.ws2016.numberOfSharesAcquired;
 		var _sign = '-';
 		if( _gain > 0 ){
