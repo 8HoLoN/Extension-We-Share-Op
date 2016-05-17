@@ -82,6 +82,54 @@
     "message": "Market: Euronext Paris (EPA:)",
     "description": "Name of the info tab."
   },
+  "openingLabel": {
+    "message": "Market: Euronext Paris (EPA:)",
+    "description": "Name of the info tab."
+  },
+  "openingDays": {
+    "message": "Market: Euronext Paris (EPA:)",
+    "description": "Name of the info tab."
+  },
+  "schedulesLabel": {
+    "message": "Market: Euronext Paris (EPA:)",
+    "description": "Name of the info tab."
+  },
+  "preopeningLabel": {
+    "message": "Market: Euronext Paris (EPA:)",
+    "description": "Name of the info tab."
+  },
+  "sessionLabel": {
+    "message": "Market: Euronext Paris (EPA:)",
+    "description": "Name of the info tab."
+  },
+  "preclosingLabel": {
+    "message": "Market: Euronext Paris (EPA:)",
+    "description": "Name of the info tab."
+  },
+  "exceptLabel": {
+    "message": "Market: Euronext Paris (EPA:)",
+    "description": "Name of the info tab."
+  },
+  "goodFriday": {
+    "message": "Market: Euronext Paris (EPA:)",
+    "description": "Name of the info tab."
+  },
+  "easterMonday": {
+    "message": "Market: Euronext Paris (EPA:)",
+    "description": "Name of the info tab."
+  },
+  "1stMay": {
+    "message": "Market: Euronext Paris (EPA:)",
+    "description": "Name of the info tab."
+  },
+  "25thDecember": {
+    "message": "Market: Euronext Paris (EPA:)",
+    "description": "Name of the info tab."
+  },
+  "26thDecember": {
+    "message": "Market: Euronext Paris (EPA:)",
+    "description": "Name of the info tab."
+  },
   "aboutTabLabel": {
     "message": "About",
     "description": "Name of the about tab."
