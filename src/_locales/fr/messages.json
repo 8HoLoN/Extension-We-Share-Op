@@ -83,51 +83,51 @@
     "description": "Nom de l'onglet info."
   },
   "openingLabel": {
-    "message": "Market: Euronext Paris (EPA:)",
+    "message": "Ouverture :",
     "description": "Name of the info tab."
   },
   "openingDays": {
-    "message": "Market: Euronext Paris (EPA:)",
+    "message": "Du lundi au vendredi",
     "description": "Name of the info tab."
   },
   "schedulesLabel": {
-    "message": "Market: Euronext Paris (EPA:)",
+    "message": "Horaires :",
     "description": "Name of the info tab."
   },
   "preopeningLabel": {
-    "message": "Market: Euronext Paris (EPA:)",
+    "message": "Préouverture : 7h15 à 9h00",
     "description": "Name of the info tab."
   },
   "sessionLabel": {
-    "message": "Market: Euronext Paris (EPA:)",
+    "message": "Séance : 9h00 à 17h30",
     "description": "Name of the info tab."
   },
   "preclosingLabel": {
-    "message": "Market: Euronext Paris (EPA:)",
+    "message": "Préclôture : 17h30 à 17h35",
     "description": "Name of the info tab."
   },
   "exceptLabel": {
-    "message": "Market: Euronext Paris (EPA:)",
+    "message": "Sauf :",
     "description": "Name of the info tab."
   },
   "goodFriday": {
-    "message": "Market: Euronext Paris (EPA:)",
+    "message": "Vendredi Saint",
     "description": "Name of the info tab."
   },
   "easterMonday": {
-    "message": "Market: Euronext Paris (EPA:)",
+    "message": "Lundi de Pâques",
     "description": "Name of the info tab."
   },
   "1stMay": {
-    "message": "Market: Euronext Paris (EPA:)",
+    "message": "1er mai (Fête du travail)",
     "description": "Name of the info tab."
   },
   "25thDecember": {
-    "message": "Market: Euronext Paris (EPA:)",
+    "message": "25 décembre (Noël)",
     "description": "Name of the info tab."
   },
   "26thDecember": {
-    "message": "Market: Euronext Paris (EPA:)",
+    "message": "26 décembre (lendemain de Noël)",
     "description": "Name of the info tab."
   },
   "aboutTabLabel": {
