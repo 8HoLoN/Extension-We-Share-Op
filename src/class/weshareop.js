@@ -106,7 +106,21 @@
 		_gEBI("wso-amundiPassword").placeholder = _gM("amundiPasswordPlaceholder");
 
 		_gEBI("wso-amundiAccess").innerHTML = _gM("amundiAccess");
+		
 		_gEBI("wso-infoTabLabel").innerHTML = _gM("infoTabLabel");
+		_gEBI("wso-openingLabel").innerHTML = _gM("openingLabel");
+		_gEBI("wso-openingDays").innerHTML = _gM("openingDays");
+		_gEBI("wso-schedulesLabel").innerHTML = _gM("schedulesLabel");
+		_gEBI("wso-preopeningLabel").innerHTML = _gM("preopeningLabel");
+		_gEBI("wso-sessionLabel").innerHTML = _gM("sessionLabel");
+		_gEBI("wso-preclosingLabel").innerHTML = _gM("preclosingLabel");
+		_gEBI("wso-exceptLabel").innerHTML = _gM("exceptLabel");
+		_gEBI("wso-goodFriday").innerHTML = _gM("goodFriday");
+		_gEBI("wso-easterMonday").innerHTML = _gM("easterMonday");
+		_gEBI("wso-1stMay").innerHTML = _gM("1stMay");
+		_gEBI("wso-25thDecember").innerHTML = _gM("25thDecember");
+		_gEBI("wso-26thDecember").innerHTML = _gM("26thDecember");
+		
 		_gEBI("wso-aboutTabLabel").innerHTML = _gM("aboutTabLabel");
 
 		_gEBI("wso-feedback").href = "mailto:"+"8holon"+"@"+"gmail.com?Subject=Feedback";
