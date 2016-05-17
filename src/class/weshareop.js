@@ -41,7 +41,10 @@
 		this.amundiTabId = null;
 		this.amundiHomeUrl = 'https://www.amundi-ee.com/part/home_login';
 		this.amundiLoggingUrl = 'https://www.amundi-ee.com/part/home_priv_synth';
-		
+
+		// local language
+		this.currentLocale = chrome.i18n.getMessage("@@ui_locale");
+		console.log(this.currentLocale);
 		//this.init();
 	};
 
@@ -82,8 +85,6 @@
 	};
 
 	WeShareOp.prototype.displayI18n = function(_window){
-		//var _currentLocale = chrome.i18n.getMessage("@@ui_locale");
-		//console.log(_currentLocale);
 		var _gEBI = _window.document.getElementById.bind(_window.document);
 		var _gM = chrome.i18n.getMessage;
 
@@ -108,6 +109,8 @@
 		_gEBI("wso-amundiAccess").innerHTML = _gM("amundiAccess");
 		_gEBI("wso-infoTabLabel").innerHTML = _gM("infoTabLabel");
 		_gEBI("wso-aboutTabLabel").innerHTML = _gM("aboutTabLabel");
+
+		
 
 		//_gEBI("wso-feedback").href = "mailto:"+"8holon"+"@"+"gmail.com?Subject=Feedback";
 		//_gEBI("wso-feedback").innerHTML = "8holon"+"&#64;"+"gmail.com";
@@ -170,7 +173,10 @@
 		_gEBI('wso-numberOfSharesPurchased').addEventListener('change',function(){
 			that.userData.ws2016.numberOfSharesPurchased = +this.options[this.selectedIndex].value;
 			that.userData.ws2016.numberOfSharesAcquired = that.userData.ws2016.numberOfSharesPurchased*2;
-			that.userData.ws2016.amountOfInvestment = that.userData.ws2016.numberOfSharesPurchased*that.BUYING_PRICE*1.08;
+			that.userData.ws2016.amountOfInvestment = that.userData.ws2016.numberOfSharesPurchased*that.BUYING_PRICE;
+			if(that.currentLocale==='fr'){// csg/crds
+				that.userData.ws2016.amountOfInvestment*=1.08;
+			}
 
 			that.saveData();
 			that.displayData(_window);
