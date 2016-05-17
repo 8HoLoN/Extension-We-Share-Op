@@ -95,15 +95,15 @@
     "description": "Name of the info tab."
   },
   "preopeningLabel": {
-    "message": "Pre opening: 7:15 to 9:00:",
+    "message": "Pre opening: 7:15 am to 9:00 am",
     "description": "Name of the info tab."
   },
   "sessionLabel": {
-    "message": "Session: 9:00 a.m. to 5:30 p.m.",
+    "message": "Session: 9:00 am to 5:30 pm",
     "description": "Name of the info tab."
   },
   "preclosingLabel": {
-    "message": "Pre Closing: 5:30 p.m. to 5:35 p.m.",
+    "message": "Pre Closing: 5:30 pm to 5:35 pm",
     "description": "Name of the info tab."
   },
   "exceptLabel": {
