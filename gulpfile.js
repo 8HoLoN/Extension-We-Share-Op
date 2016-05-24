@@ -7,6 +7,7 @@ const merge = require('merge-stream');
 const jsonminify = require('gulp-jsonminify');
 const uglify = require('gulp-uglify');
 const zip = require('gulp-zip');
+const closureCompiler = require('google-closure-compiler').gulp();
 
 
 gulp.task('default',['build'], function() {
@@ -36,19 +37,30 @@ gulp.task('build',['clean:build'], function() {
 
     var jsStream = gulp.src(['src/class/**/*.js','src/browser_action/**/*.js','src/bg/**/*.js'], { base: "./src/" })
         .pipe(sourcemaps.init())
+        //*
         .pipe(babel({
             presets: ['es2015']
         }))
-        .pipe(uglify().on('error', function(e){
+        .pipe(uglify({
+            preserveComments: 'license'
+        }).on('error', function(e){
             console.log(e);
-        }))
+        }))//*/
+        /*.pipe(closureCompiler({
+            compilation_level: 'SIMPLE',
+            //warning_level: 'VERBOSE',
+            language_in: 'ECMASCRIPT6_STRICT',
+            //language_out: 'ECMASCRIPT5_STRICT',
+            //output_wrapper: '(function(){\n%output%\n}).call(this)',
+            //js_output_file: 'output.min.js'
+        }))//*/
         .pipe(sourcemaps.write('.'));
         //.pipe(zipFilter)
         //.pipe(gulp.dest('./build/lib/'));
 
     return merge([mainStream,libStream,manifestStream,jsStream])
         .pipe(zipFilter)
-        .pipe(zip('build.zip',{compress:true}))
+        //.pipe(zip('build.zip',{compress:true}))
         .pipe(gulp.dest('build/'));
     //return gulp.src('./src/js/**/*.js')
      //   .pipe(gulp.dest('./dist/'));

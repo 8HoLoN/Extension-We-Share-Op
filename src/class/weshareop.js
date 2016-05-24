@@ -1,7 +1,17 @@
-;(function(_g){
+/**
+ * @license
+ * Copyright (c) 2016 Alexandre REMY
+ *
+ * https://github.com/8HoLoN/Extension-We-Share-Op
+ * @version: 0.0.7 ( June 2016 )
+ * @author 8HoLoN / https://github.com/8HoLoN/
+ * < 8holon [at] gmail.com >
+ */
+(function(_g){
 	"use strict";
-	
+
 	function WeShareOp(){
+		this.version = chrome.runtime.getManifest().version;
 		this.appName = 'We Share Op.';
 		this.alarmName = 'WeShareOp';
 		this.updateDelayInSecond = 61;/* 10 600 */
@@ -15,13 +25,13 @@
 
 		this.userData = {
 			ws2016 : {
-				numberOfSharesPurchased : 1,
-				numberOfSharesAcquired : 1*2,
-				amountOfInvestment : 1*101.62*1.08,
+				numberOfSharesPurchased: 1,
+				numberOfSharesAcquired: null,
+				amountOfInvestment: null
 			},
 			amundiAccount : {
-				login : '',
-				pwd : ''
+				login: '',
+				pwd: ''
 			}
 		};
 
@@ -46,11 +56,10 @@
 		this.currentLocale = chrome.i18n.getMessage("@@ui_locale");
 		console.log(this.currentLocale);
 		//this.init();
-	};
+	}
 
 	WeShareOp.prototype.init = function(){
-		var that = this;
-		this.updateFinanceData();
+		//this.updateFinanceData();
 		chrome.alarms.clearAll((_wasCleared)=>{
 			chrome.alarms.onAlarm.addListener((_alarm)=>{
 				if(_alarm.name===this.alarmName){
@@ -65,23 +74,43 @@
 			}
 		});
 
-		chrome.storage.local.set({wsoVersion:'0.0.3'}, function (){
+		chrome.storage.local.set({wsoVersion:this.version},()=>{
 			console.log(chrome.runtime.lastError);
 			//chrome.runtime.id
 
-			chrome.storage.local.get(['wsoUserData','wsoVersion'], function (_items){
+			chrome.storage.local.get(['wsoUserData','wsoVersion'],(_items)=>{
 				try{
-					console.log(_items);
-					console.log(sjcl.decrypt("wso"+chrome.runtime.id,_items.wsoUserData));
-					that.userData = JSON.parse(sjcl.decrypt("wso"+chrome.runtime.id,_items.wsoUserData));
-					that.updateFinanceData();
+					this.loadData(_items);
 				}catch (e){
 					console.log(e);
 				}
-
+				this.computeData();
+				this.updateFinanceData();
 			});
 		});
 
+	};
+
+	/**
+	 * Load user data from chrome local storage.
+	 * @param {string} str - The string containing two comma-separated numbers.
+	 * @return {undefined}
+	 */
+	WeShareOp.prototype.loadData = function(_items){
+		console.log(_items);
+		console.log(sjcl.decrypt("wso"+chrome.runtime.id,_items.wsoUserData));
+		var _userData = JSON.parse(sjcl.decrypt("wso"+chrome.runtime.id,_items.wsoUserData));
+		this.userData.ws2016.numberOfSharesPurchased = _userData.ws2016.numberOfSharesPurchased;
+		this.userData.amundiAccount.login = _userData.amundiAccount.login;
+		this.userData.amundiAccount.pwd = _userData.amundiAccount.pwd;
+	};
+
+	WeShareOp.prototype.computeData = function(){
+		this.userData.ws2016.numberOfSharesAcquired = this.userData.ws2016.numberOfSharesPurchased * 2;
+		this.userData.ws2016.amountOfInvestment = this.userData.ws2016.numberOfSharesPurchased * this.BUYING_PRICE;
+		if(this.currentLocale==='fr'){// csg/crds
+			this.userData.ws2016.amountOfInvestment*=1.08;
+		}
 	};
 
 	WeShareOp.prototype.displayI18n = function(_window){
@@ -123,23 +152,18 @@
 		_gEBI("wso-26thDecember").innerHTML = _gM("26thDecember");
 		
 		_gEBI("wso-aboutTabLabel").innerHTML = _gM("aboutTabLabel");
-
 		
-
 		//_gEBI("wso-feedback").href = "mailto:"+"8holon"+"@"+"gmail.com?Subject=Feedback";
 		//_gEBI("wso-feedback").innerHTML = "8holon"+"&#64;"+"gmail.com";
 		_gEBI("wso-feedback").href = "mailto:"+"alexandre.remy.contact"+"@"+"gmail.com?Subject=Feedback";
 		_gEBI("wso-feedback").innerHTML = "alexandre.remy.contact"+"&#64;"+"gmail.com";
 
-		var manifest = chrome.runtime.getManifest();
-		_gEBI("wso-version").innerHTML = manifest.version;
+		_gEBI("wso-version").innerHTML = this.version;
 
 		_gEBI("wso-versionLabel").innerHTML = _gM("versionLabel");
 		_gEBI("wso-links").innerHTML = _gM("links");
 		_gEBI("wso-reviews").innerHTML = _gM("reviews");
 		_gEBI("wso-feedbackLabel").innerHTML = _gM("feedbackLabel");
-
-
 	};
 
 	WeShareOp.prototype.displayData = function(_window){
@@ -156,6 +180,10 @@
 		_gEBI('wso-amundiPassword').value=this.userData.amundiAccount.pwd;
 	};
 
+	/**
+	 * Save user data to chrome local storage.
+	 * @return {undefined}
+	 */
 	WeShareOp.prototype.saveData = function(){
 		chrome.storage.local.set({wsoUserData:sjcl.encrypt("wso"+chrome.runtime.id,JSON.stringify(this.userData),{ks:256})}, function (){
 			console.log('saveError',chrome.runtime.lastError);
@@ -164,6 +192,7 @@
 	};
 
 	WeShareOp.prototype.browserAction = function(_window){
+		//_window.close();
 		var that=this;
 		console.log("browserAction");
 		this._window = _window;
@@ -174,7 +203,7 @@
 
 		this.displayI18n(_window);
 		this.displayData(_window);
-		//_window.close();
+
 		var _gEBI = _window.document.getElementById.bind(_window.document);
 		_gEBI('wso-amundiLogin').addEventListener('keyup',function(){
 			that.userData.amundiAccount.login = this.value;
@@ -186,12 +215,7 @@
 		});
 		_gEBI('wso-numberOfSharesPurchased').addEventListener('change',function(){
 			that.userData.ws2016.numberOfSharesPurchased = +this.options[this.selectedIndex].value;
-			that.userData.ws2016.numberOfSharesAcquired = that.userData.ws2016.numberOfSharesPurchased*2;
-			that.userData.ws2016.amountOfInvestment = that.userData.ws2016.numberOfSharesPurchased*that.BUYING_PRICE;
-			if(that.currentLocale==='fr'){// csg/crds
-				that.userData.ws2016.amountOfInvestment*=1.08;
-			}
-
+			that.computeData();
 			that.saveData();
 			that.displayData(_window);
 			that.displayBadgeText();
@@ -277,7 +301,7 @@
 					console.log("Google Error");
 				}
 			}
-		}
+		};
 		xhr.send();
 	};
 
