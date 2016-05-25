@@ -166,7 +166,7 @@
 		_gEBI("wso-feedbackLabel").innerHTML = _gM("feedbackLabel");
 	};
 
-	WeShareOp.prototype.displayData = function(_window){
+	WeShareOp.prototype.displayData = function(_window){// todo check value init
 		var _gEBI = _window.document.getElementById.bind(_window.document);
 		_gEBI('wso-sharesValue').value = this.financeData.value.toFixed(2)+'€';
 		_gEBI('wso-investmentValue').value = (this.financeData.value*this.userData.ws2016.numberOfSharesAcquired).toFixed(2)+'€';
@@ -220,6 +220,14 @@
 			that.displayData(_window);
 			that.displayBadgeText();
 		});
+		/* TODO: i18n w/ variable
+		this.getNumberOfUsers()
+			.then(_numberOfUsers=>{
+				if(_numberOfUsers!==null){
+					_gEBI('wso-numberOfUsers').innerHTML = 'Déjà plus de '+_numberOfUsers+' utilisateurs !';
+				}
+			});
+		//*/
 	};
 
 	WeShareOp.prototype.loginOnAmundiTab = function(){
@@ -279,6 +287,43 @@
 		}
 
 
+	};
+
+	/**
+	 * Perform an ajax call.
+	 *
+	 * @param {string} _url The desired url to reach.
+	 * @returns {Promise.<XMLHttpRequest>} The promise handling the XMLHttpRequest
+	 */
+	WeShareOp.prototype.send = function(_url, options) {
+		var _promise = new Promise( function (_resolve, _reject) {
+			var _xhr = new XMLHttpRequest();
+			_xhr.open("GET", _url, true);
+			_xhr.onreadystatechange = function() {
+				if (this.readyState == 4) {
+					if( this.status >= 200 && this.status < 300 ){
+						_resolve(this);
+					}else{
+						_reject(this);
+					}
+				}
+			};
+			_xhr.send();
+		});
+		return _promise;
+	};
+
+	WeShareOp.prototype.getNumberOfUsers = function(){
+		return this.send('https://chrome.google.com/webstore/detail/nobbmhfbgoapjobjbipoagpahklgkpch')
+			.then(_xhr=>{
+				var _numberOfUsers = _xhr.responseText.match(/UserDownloads:([0-9]*)/)[1];
+				//console.log(_numberOfUsers);
+				return _numberOfUsers;
+			})
+			.catch((_e)=>{
+				console.log('error : numberOfUsers',_e);
+				return null;
+			});
 	};
 
 	WeShareOp.prototype.getFinanceData = function(_ok){

@@ -19,7 +19,7 @@
 			}
 			#mainPopup {
 				padding: 10px;
-				height: 200px;
+				_height: 350px;
 				width: 650px;/* 767 */
 				font-family: Helvetica, Ubuntu, Arial, sans-serif;
 			}
@@ -142,21 +142,21 @@
 									<div class="form-group">
 										<label id="wso-sharesValueLabel" for="wso-sharesValue" class="control-label col-xs-3">Valeur de l'action</label>
 										<div class="col-xs-3">
-											<input id="wso-sharesValue" class="form-control" type="text" value="--.--€" readonly disabled >
+											<input id="wso-sharesValue" class="form-control" type="text" value="--.--€" readonly disabled data-toggle="tooltip" title="">
 										</div>
 										<label id="wso-investmentValueLabel" for="wso-investmentValue" class="control-label col-xs-3">Valorisation</label><!-- valeur de l'investissement / valorisation-->
 										<div class="col-xs-3">
-											<input id="wso-investmentValue" class="form-control" type="text" value="--.--€" readonly disabled >
+											<input id="wso-investmentValue" class="form-control" type="text" value="--.--€" readonly disabled data-toggle="tooltip" title="">
 										</div>
 									</div>
 									<div class="form-group">
 										<label id="wso-capitalGainLabel" for="wso-capitalGain" class="control-label col-xs-3">Plus value</label>
 										<div class="col-xs-3">
-											<input id="wso-capitalGain" class="form-control" type="text" value="--.--€" readonly disabled >
+											<input id="wso-capitalGain" class="form-control" type="text" value="--.--€" readonly disabled data-toggle="tooltip" data-placement="bottom" title="(Excluding taxes and social security contributions)">
 										</div>
 										<label id="wso-overallGainLabel" for="wso-overallGain" class="control-label col-xs-3">Plus value global</label>
 										<div class="col-xs-3">
-											<input id="wso-overallGain" class="form-control" type="text" value="--.--€" readonly disabled >
+											<input id="wso-overallGain" class="form-control" type="text" value="--.--€" readonly disabled data-toggle="tooltip" data-placement="bottom" title="(Excluding taxes and social security contributions)">
 										</div>
 									</div>
 								</form>
@@ -182,7 +182,7 @@
 											<div class="form-group">
 												<label id="wso-numberOfSharesPurchasedLabel" for="wso-numberOfSharesPurchased" class="control-label col-xs-3">Actions achetées</label>
 												<div class="col-xs-3">
-													<select class="form-control" id="wso-numberOfSharesPurchased">
+													<select id="wso-numberOfSharesPurchased" class="form-control" data-toggle="tooltip" title="Nombre d'actions achetées">
 														<option>1</option>
 														<option>2</option>
 														<option>3</option>
@@ -208,11 +208,11 @@
 											<div class="form-group">
 												<label id="wso-buyingPriceLabel" for="wso-buyingPrice" class="control-label col-xs-3">Prix d'achat</label>
 												<div class="col-xs-3">
-													<input id="wso-buyingPrice" class="form-control" type="text" value="101.62€" readonly disabled >
+													<input id="wso-buyingPrice" class="form-control" type="text" value="101.62€" readonly disabled data-toggle="tooltip" data-placement="bottom" title="Prix d'achat">
 												</div>
 												<label id="wso-amountOfInvestmentLabel" for="wso-amountOfInvestment" class="control-label col-xs-3">Investissement</label>
 												<div class="col-xs-3">
-													<input id="wso-amountOfInvestment" class="form-control" type="text" value="3182.7384€" readonly disabled >
+													<input id="wso-amountOfInvestment" class="form-control" type="text" value="3182.7384€" readonly disabled data-toggle="tooltip" data-placement="bottom" title="Nombre d'actions achetées">
 												</div>
 											</div>
 										</form>
@@ -349,7 +349,7 @@
 					</div>
 				</div>
 			</div>
-
+			<span id="wso-numberOfUsers" class="pull-right small"></span>
 		</div>
 
 		<!-- Latest compiled and minified JavaScript -->
