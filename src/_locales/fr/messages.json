@@ -12,6 +12,7 @@
     "description": "Description de l'extension."
   },
   // browser_actions
+  // stats
   "statsTabName": {
     "message": "Statistiques",
     "description": "Nom de l'onglet statistiques."
@@ -20,17 +21,33 @@
     "message": "Valeur de l'action",
     "description": "Nom du libellé de la valeur de l'action."
   },
+  "sharesValueTitle": {
+    "message": "Valeur courante de l'action",
+    "description": "Infobulle pour la valeur de l'action."
+  },
   "investmentValueLabel": {
     "message": "Valorisation",
     "description": "Nom du libellé de la valeur actuelle de l'investissement."
+  },
+  "investmentValueTitle": {
+    "message": "Valeur courante de l'investissement",
+    "description": "Infobulle pour la valeur actuelle de l'investissement."
   },
   "capitalGainLabel": {
     "message": "Plus value",
     "description": "Nom du libellé de la plus value effectuée."
   },
+  "capitalGainTitle": {
+    "message": "(Hors taxes et contributions sociales)",
+    "description": "Infobulle pour la plus value effectuée."
+  },
   "overallGainLabel": {
     "message": "Bénéfice global",
     "description": "Nom du libellé de la plus value globale effectuée."
+  },
+  "overallGainTitle": {
+    "message": "(Hors taxes et contributions sociales)",
+    "description": "Infobulle pour la plus value globale effectuée."
   },
   // shares
   "sharesTabLabel": {
@@ -41,17 +58,33 @@
     "message": "Actions achetées",
     "description": "Nom du libellé du nombre d'actions achetées."
   },
+  "numberOfSharesPurchasedTitle": {
+    "message": "Nombre d'actions achetées",
+    "description": "Infobulle pour le nombre d'actions achetées."
+  },
   "numberOfSharesAcquiredLabel": {
     "message": "Actions acquises",
     "description": "Nom du libellé du nombre d'actions acquises."
+  },
+  "numberOfSharesAcquiredTitle": {
+    "message": "Nombre d'actions achetées x2",
+    "description": "Infobulle pour le nombre d'actions acquises."
   },
   "buyingPriceLabel": {
     "message": "Prix d'achat",
     "description": "Nom du libellé du prix d'achat."
   },
+  "buyingPriceTitle": {
+    "message": "Prix d'achat",
+    "description": "Infobulle pour le prix d'achat."
+  },
   "amountOfInvestmentLabel": {
     "message": "Investissement",
     "description": "Nom du libellé du montant initial de l'investissement."
+  },
+  "amountOfInvestmentTitle": {
+    "message": "(Taxes et contributions sociales incluses)",
+    "description": "Infobulle pour le montant initial de l'investissement."
   },
   // Amundi
   "amundiAccountTabLabel": {
@@ -78,58 +111,60 @@
     "message": "Accéder à votre compte Amundi",
     "description": "Nom du bouton d'accès au compte Amundi."
   },
+  // infos
   "infoTabLabel": {
     "message": "Marché : Euronext Paris (EPA:)",
     "description": "Nom de l'onglet info."
   },
   "openingLabel": {
     "message": "Ouverture :",
-    "description": "Name of the info tab."
+    "description": "Informations sur les horaires d'ouverture."
   },
   "openingDays": {
     "message": "Du lundi au vendredi",
-    "description": "Name of the info tab."
+    "description": "Informations sur les horaires d'ouverture."
   },
   "schedulesLabel": {
     "message": "Horaires :",
-    "description": "Name of the info tab."
+    "description": "Informations sur les horaires d'ouverture."
   },
   "preopeningLabel": {
     "message": "Préouverture : 7h15 à 9h00",
-    "description": "Name of the info tab."
+    "description": "Informations sur les horaires d'ouverture."
   },
   "sessionLabel": {
     "message": "Séance : 9h00 à 17h30",
-    "description": "Name of the info tab."
+    "description": "Informations sur les horaires d'ouverture."
   },
   "preclosingLabel": {
     "message": "Préclôture : 17h30 à 17h35",
-    "description": "Name of the info tab."
+    "description": "Informations sur les horaires d'ouverture."
   },
   "exceptLabel": {
     "message": "Sauf :",
-    "description": "Name of the info tab."
+    "description": "Informations sur les horaires d'ouverture."
   },
   "goodFriday": {
     "message": "Vendredi Saint",
-    "description": "Name of the info tab."
+    "description": "Informations sur les horaires d'ouverture."
   },
   "easterMonday": {
     "message": "Lundi de Pâques",
-    "description": "Name of the info tab."
+    "description": "Informations sur les horaires d'ouverture."
   },
   "1stMay": {
     "message": "1er mai (Fête du travail)",
-    "description": "Name of the info tab."
+    "description": "Informations sur les horaires d'ouverture."
   },
   "25thDecember": {
     "message": "25 décembre (Noël)",
-    "description": "Name of the info tab."
+    "description": "Informations sur les horaires d'ouverture."
   },
   "26thDecember": {
     "message": "26 décembre (lendemain de Noël)",
-    "description": "Name of the info tab."
+    "description": "Informations sur les horaires d'ouverture."
   },
+  // about
   "aboutTabLabel": {
     "message": "À Propos",
     "description": "Nom de l'onglet à propos."
@@ -148,6 +183,25 @@
   },
   "feedbackLabel": {
     "message": "Retours & suggestions :",
-    "description": "Label for feedback and suggestions."
+    "description": "Libellé pour les retours et suggestions."
+  },
+  // modal
+  "loading": {
+    "message": "Chargement…",
+    "description": "Libellé pour le chargement."
+  },
+  "closeModal": {
+    "message": "Fermer",
+    "description": "Libellé pour le bouton de fermeture de la popup."
+  },
+  "numberOfUsers": {
+    "message": "Déjà plus de $numberOfUsers$ utilisateurs !",
+    "description": "Libellé pour le nombre d'utilisateurs.",
+    "placeholders": {
+      "numberOfUsers": {
+        "content": "$1",
+        "example": "23"
+      }
+    }
   }
 }

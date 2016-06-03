@@ -12,6 +12,7 @@
     "description": "Extension description."
   },
   // browser_action
+  // stats
   "statsTabName": {
     "message": "Statistics",
     "description": "Name of the statistics tab."
@@ -20,17 +21,33 @@
     "message": "Share value",
     "description": "Name of the label for the value of the share."
   },
+  "sharesValueTitle": {
+    "message": "Current value of the share",
+    "description": "Tooltip for the share value input."
+  },
   "investmentValueLabel": {
     "message": "Investment value",
     "description": "Name of the label for the value of the investment."
+  },
+  "investmentValueTitle": {
+    "message": "Current value of the investment",
+    "description": "Tooltip for the value of the investment."
   },
   "capitalGainLabel": {
     "message": "Capital gain",
     "description": "Name of the label for the value of the capital gain."
   },
+  "capitalGainTitle": {
+    "message": "(Excluding taxes and social security contributions)",
+    "description": "Tooltip for the capital gain input."
+  },
   "overallGainLabel": {
     "message": "Overall gain",
     "description": "Name of the label for the value of the overall capital gain."
+  },
+  "overallGainTitle": {
+    "message": "(Excluding taxes and social security contributions)",
+    "description": "Tooltip for the overall gain input."
   },
   // shares
   "sharesTabLabel": {
@@ -41,17 +58,33 @@
     "message": "Shares bought",
     "description": "Name of the label for the number of shares purchased."
   },
+  "numberOfSharesPurchasedTitle": {
+    "message": "Number of shares purchased",
+    "description": "Tooltip for the number of shares purchased."
+  },
   "numberOfSharesAcquiredLabel": {
     "message": "Shares acquired",
     "description": "Name of the label for the number of shares acquired."
+  },
+  "numberOfSharesAcquiredTitle": {
+    "message": "Number of shares purchased x2",
+    "description": "Tooltip for the number of shares acquired."
   },
   "buyingPriceLabel": {
     "message": "Buying price",
     "description": "Name of the label for the buying price."
   },
+  "buyingPriceTitle": {
+    "message": "Buying price",
+    "description": "Tooltip for the buying price."
+  },
   "amountOfInvestmentLabel": {
     "message": "Investment",
     "description": "Name of the label for the amount of investment."
+  },
+  "amountOfInvestmentTitle": {
+    "message": "(Excluding taxes and social security contributions)",
+    "description": "Tooltip for the amount of investment."
   },
   // Amundi
   "amundiAccountTabLabel": {
@@ -72,64 +105,66 @@
   },
   "amundiPasswordPlaceholder": {
     "message": "Enter password",
-    "description": "Nom du placeholder du mot de passe au compte Amundi."
+    "description": "Name of the password placeholder."
   },
   "amundiAccess": {
     "message": "Access to Amundi account",
     "description": "Name of the amundi account access button."
   },
+  // infos
   "infoTabLabel": {
     "message": "Market: Euronext Paris (EPA:)",
     "description": "Name of the info tab."
   },
   "openingLabel": {
     "message": "Opening:",
-    "description": "Name of the info tab."
+    "description": "Information on opening times."
   },
   "openingDays": {
     "message": "From Monday to Friday",
-    "description": "Name of the info tab."
+    "description": "Information on opening times."
   },
   "schedulesLabel": {
     "message": "Schedules:",
-    "description": "Name of the info tab."
+    "description": "Information on opening times."
   },
   "preopeningLabel": {
     "message": "Pre opening: 7:15 am to 9:00 am",
-    "description": "Name of the info tab."
+    "description": "Information on opening times."
   },
   "sessionLabel": {
     "message": "Session: 9:00 am to 5:30 pm",
-    "description": "Name of the info tab."
+    "description": "Information on opening times."
   },
   "preclosingLabel": {
     "message": "Pre Closing: 5:30 pm to 5:35 pm",
-    "description": "Name of the info tab."
+    "description": "Information on opening times."
   },
   "exceptLabel": {
     "message": "except:",
-    "description": "Name of the info tab."
+    "description": "Information on opening times."
   },
   "goodFriday": {
     "message": "Good Friday",
-    "description": "Name of the info tab."
+    "description": "Information on opening times."
   },
   "easterMonday": {
     "message": "Easter Monday",
-    "description": "Name of the info tab."
+    "description": "Information on opening times."
   },
   "1stMay": {
     "message": "May 1 (Labour Day)",
-    "description": "Name of the info tab."
+    "description": "Information on opening times."
   },
   "25thDecember": {
     "message": "December 25 (Christmas)",
-    "description": "Name of the info tab."
+    "description": "Information on opening times."
   },
   "26thDecember": {
     "message": "December 26 (Boxing Day)",
-    "description": "Name of the info tab."
+    "description": "Information on opening times."
   },
+  // about
   "aboutTabLabel": {
     "message": "About",
     "description": "Name of the about tab."
@@ -149,5 +184,24 @@
   "feedbackLabel": {
     "message": "Feedback & suggestions:",
     "description": "Label for feedback and suggestions."
+  },
+  // modal
+  "loading": {
+    "message": "Loading…",
+    "description": "Label for the loading."
+  },
+  "closeModal": {
+    "message": "Close",
+    "description": "Label for the modal's close button."
+  },
+  "numberOfUsers": {
+    "message": "Already over $numberOfUsers$ users!",
+    "description": "Label for the number of users.",
+    "placeholders": {
+      "numberOfUsers": {
+        "content": "$1",
+        "example": "23"
+      }
+    }
   }
 }

@@ -13,13 +13,14 @@
 
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="../lib/bootstrap/3.3.6/css/bootstrap-theme.min.css" >
+
 		<style type="text/css">
 			body{
 				background-color: snow;/* snow ivory */
 			}
 			#mainPopup {
 				padding: 10px;
-				_height: 350px;
+				height: 350px;
 				width: 650px;/* 767 */
 				font-family: Helvetica, Ubuntu, Arial, sans-serif;
 			}
@@ -31,7 +32,7 @@
 				_margin:auto;
 			}
 			/* glyphicon style */
-			.glyphicon {
+			a.bicon span.glyphicon {
 				font-size: 20px;
 			}
 			a.bicon{
@@ -79,7 +80,7 @@
 
 				_padding: 5px 60px 5px 60px;
 				padding: 5px 190px 5px 190px;
-    		margin: 20px;
+    			margin: 20px;
     		    font-size: 2em;
 			}
 			.logo-title h1:hover{
@@ -87,6 +88,22 @@
 			}
 			.center{
 				text-align: center;
+			}
+
+			/* loading */
+			.glyphicon-refresh-animate {
+				-animation: spin 1.7s infinite linear;
+				-webkit-animation: spin2 1.7s infinite linear;
+			}
+
+			@-webkit-keyframes spin2 {
+				from { -webkit-transform: rotate(0deg);}
+				to { -webkit-transform: rotate(360deg);}
+			}
+
+			@keyframes spin {
+				from { transform: scale(1) rotate(0deg);}
+				to { transform: scale(1) rotate(360deg);}
 			}
 		</style>
 
@@ -135,7 +152,15 @@
 					<div id="statsTab" class="tab-pane fade in active">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<h3 id="wso-statsTabLabel" class="panel-title">Stats</h3>
+								<h3  class="panel-title">
+									<span id="wso-statsTabLabel"></span>
+									<div style="margin-top: -3px" class="btn-group pull-right">
+										<!-- Trigger the modal with a button -->
+										<a class="btn btn-primary btn-xs pull-right" data-toggle="modal" data-target="#wso-modal" href="#">
+											<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+										</a>
+									</div>
+								</h3>
 							</div>
 							<div class="panel-body">
 								<form class="form-horizontal" role="form">
@@ -152,11 +177,11 @@
 									<div class="form-group">
 										<label id="wso-capitalGainLabel" for="wso-capitalGain" class="control-label col-xs-3">Plus value</label>
 										<div class="col-xs-3">
-											<input id="wso-capitalGain" class="form-control" type="text" value="--.--€" readonly disabled data-toggle="tooltip" data-placement="bottom" title="(Excluding taxes and social security contributions)">
+											<input id="wso-capitalGain" class="form-control" type="text" value="--.--€" readonly disabled data-toggle="tooltip" data-placement="bottom" title="">
 										</div>
 										<label id="wso-overallGainLabel" for="wso-overallGain" class="control-label col-xs-3">Plus value global</label>
 										<div class="col-xs-3">
-											<input id="wso-overallGain" class="form-control" type="text" value="--.--€" readonly disabled data-toggle="tooltip" data-placement="bottom" title="(Excluding taxes and social security contributions)">
+											<input id="wso-overallGain" class="form-control" type="text" value="--.--€" readonly disabled data-toggle="tooltip" data-placement="bottom" title="">
 										</div>
 									</div>
 								</form>
@@ -182,7 +207,7 @@
 											<div class="form-group">
 												<label id="wso-numberOfSharesPurchasedLabel" for="wso-numberOfSharesPurchased" class="control-label col-xs-3">Actions achetées</label>
 												<div class="col-xs-3">
-													<select id="wso-numberOfSharesPurchased" class="form-control" data-toggle="tooltip" title="Nombre d'actions achetées">
+													<select id="wso-numberOfSharesPurchased" class="form-control" data-toggle="tooltip" title="">
 														<option>1</option>
 														<option>2</option>
 														<option>3</option>
@@ -202,17 +227,17 @@
 												</div>
 												<label id="wso-numberOfSharesAcquiredLabel" for="wso-numberOfSharesAcquired" class="control-label col-xs-3">Actions acquises</label>
 												<div class="col-xs-3">
-													<input id="wso-numberOfSharesAcquired" class="form-control" type="text" placeholder="" readonly disabled data-toggle="tooltip" title="Shares purchased x2" >
+													<input id="wso-numberOfSharesAcquired" class="form-control" type="text" placeholder="" readonly disabled data-toggle="tooltip" title="" >
 												</div>
 											</div>
 											<div class="form-group">
 												<label id="wso-buyingPriceLabel" for="wso-buyingPrice" class="control-label col-xs-3">Prix d'achat</label>
 												<div class="col-xs-3">
-													<input id="wso-buyingPrice" class="form-control" type="text" value="101.62€" readonly disabled data-toggle="tooltip" data-placement="bottom" title="Prix d'achat">
+													<input id="wso-buyingPrice" class="form-control" type="text" value="101.62€" readonly disabled data-toggle="tooltip" data-placement="bottom" title="">
 												</div>
 												<label id="wso-amountOfInvestmentLabel" for="wso-amountOfInvestment" class="control-label col-xs-3">Investissement</label>
 												<div class="col-xs-3">
-													<input id="wso-amountOfInvestment" class="form-control" type="text" value="3182.7384€" readonly disabled data-toggle="tooltip" data-placement="bottom" title="Nombre d'actions achetées">
+													<input id="wso-amountOfInvestment" class="form-control" type="text" value="3182.7384€" readonly disabled data-toggle="tooltip" data-placement="bottom" title="">
 												</div>
 											</div>
 										</form>
@@ -335,7 +360,7 @@
 											</li>
 										</ul>
 									</div>
-									<div class="col-xs-4" style="position: absolute;bottom: 30px;right: 25px;">
+									<div class="col-xs-4" style="position: absolute;bottom: 45px;right: 25px;">
 										<blockquote class="blockquote-reverse" style="margin-bottom: 0;">
 											<p>We share hope.</p>
 											<footer>Alexandre REMY<!--<cite title="Source Title">Source Title</cite>--></footer>
@@ -349,13 +374,43 @@
 					</div>
 				</div>
 			</div>
-			<span id="wso-numberOfUsers" class="pull-right small"></span>
+			<em><span id="wso-numberOfUsers" class="pull-right small">&nbsp;</span></em>
+		</div>
+
+		<!-- Modal -->
+		<div id="wso-modal" class="modal fade" role="dialog">
+			<div class="modal-dialog" style="/*margin: 0;*/">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<!--
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Modal Header</h4>
+					</div>
+					-->
+					<div class="modal-body center" style="padding: 0;">
+						<!--<p>Some text in the modal.</p>-->
+						<div id="wso-highchartsContainer" style="height: 303px; width: 100%;line-height: 300px;"><!-- 620px; -->
+							<button class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> <span id="wso-loading"></span></button>
+						</div>
+					</div>
+					<div class="modal-footer" style="padding: 0;text-align: center;">
+						<button id="wso-closeModal" type="button" class="btn-xs btn-default" data-dismiss="modal"></button>
+					</div>
+				</div>
+
+			</div>
 		</div>
 
 		<!-- Latest compiled and minified JavaScript -->
-		<script type="text/javascript" src="../lib/jquery/jquery-2.2.3.min.js" ></script>
-		<script type="text/javascript" src="../lib/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
-		<script type="text/javascript" src="./browser_action.js"></script>
+		<script type="text/javascript" src="../lib/jquery/jquery-2.2.3.min.js" defer></script>
+		<script type="text/javascript" src="../lib/bootstrap/3.3.6/js/bootstrap.min.js" defer></script>
+
+		<script type="text/javascript" src="../lib/highcharts/Highstock-4.2.5/js/highstock.js" defer></script>
+		<script type="text/javascript" src="../lib/highcharts/Highstock-4.2.5/js/modules/exporting.js" defer></script>
+
+		<script type="text/javascript" src="./browser_action.js" defer></script>
 	</body>
 </html>
 

@@ -119,15 +119,23 @@
 
 		_gEBI("wso-statsTabLabel").innerHTML = _gM("statsTabName");
 		_gEBI("wso-sharesValueLabel").innerHTML = _gM("sharesValueLabel");
+		_gEBI("wso-sharesValue").title = _gM("sharesValueTitle");
 		_gEBI("wso-investmentValueLabel").innerHTML = _gM("investmentValueLabel");
+		_gEBI("wso-investmentValue").title = _gM("investmentValueTitle");
 		_gEBI("wso-capitalGainLabel").innerHTML = _gM("capitalGainLabel");
+		_gEBI("wso-capitalGain").title = _gM("capitalGainTitle");
 		_gEBI("wso-overallGainLabel").innerHTML = _gM("overallGainLabel");
+		_gEBI("wso-overallGain").title = _gM("overallGainTitle");
 
 		_gEBI("wso-sharesTabLabel").innerHTML = _gM("sharesTabLabel");
 		_gEBI("wso-numberOfSharesPurchasedLabel").innerHTML = _gM("numberOfSharesPurchasedLabel");
+		_gEBI("wso-numberOfSharesPurchased").title = _gM("numberOfSharesPurchasedTitle");
 		_gEBI("wso-numberOfSharesAcquiredLabel").innerHTML = _gM("numberOfSharesAcquiredLabel");
+		_gEBI("wso-numberOfSharesAcquired").title = _gM("numberOfSharesAcquiredTitle");
 		_gEBI("wso-buyingPriceLabel").innerHTML = _gM("buyingPriceLabel");
+		_gEBI("wso-buyingPrice").title = _gM("buyingPriceTitle");
 		_gEBI("wso-amountOfInvestmentLabel").innerHTML = _gM("amountOfInvestmentLabel");
+		_gEBI("wso-amountOfInvestment").title = _gM("amountOfInvestmentTitle");
 
 		_gEBI("wso-amundiAccountTabLabel").innerHTML = _gM("amundiAccountTabLabel");
 		_gEBI("wso-amundiLoginLabel").innerHTML = _gM("amundiLoginLabel");
@@ -164,20 +172,28 @@
 		_gEBI("wso-links").innerHTML = _gM("links");
 		_gEBI("wso-reviews").innerHTML = _gM("reviews");
 		_gEBI("wso-feedbackLabel").innerHTML = _gM("feedbackLabel");
+		
+		_gEBI("wso-loading").innerHTML = _gM("loading");
+		_gEBI("wso-closeModal").innerHTML = _gM("closeModal");
+
 	};
 
-	WeShareOp.prototype.displayData = function(_window){// todo check value init
+	WeShareOp.prototype.displayData = function(_window){// todo move compute to the right method
 		var _gEBI = _window.document.getElementById.bind(_window.document);
-		_gEBI('wso-sharesValue').value = this.financeData.value.toFixed(2)+'€';
-		_gEBI('wso-investmentValue').value = (this.financeData.value*this.userData.ws2016.numberOfSharesAcquired).toFixed(2)+'€';
-		_gEBI('wso-capitalGain').value = ((this.financeData.value - this.BUYING_PRICE)*this.userData.ws2016.numberOfSharesAcquired).toFixed(2)+'€';
-		_gEBI('wso-overallGain').value = ((this.financeData.value*this.userData.ws2016.numberOfSharesAcquired)-this.userData.ws2016.amountOfInvestment).toFixed(2)+'€';
+		if(this.financeData.value){
+			_gEBI('wso-sharesValue').value = this.financeData.value.toFixed(2)+'€';
+			_gEBI('wso-investmentValue').value = (this.financeData.value*this.userData.ws2016.numberOfSharesAcquired).toFixed(2)+'€';
+			_gEBI('wso-capitalGain').value = ((this.financeData.value - this.BUYING_PRICE)*this.userData.ws2016.numberOfSharesAcquired).toFixed(2)+'€';
+			_gEBI('wso-overallGain').value = ((this.financeData.value*this.userData.ws2016.numberOfSharesAcquired)-this.userData.ws2016.amountOfInvestment).toFixed(2)+'€';
+		}
 
 		_gEBI("wso-numberOfSharesPurchased").value=this.userData.ws2016.numberOfSharesPurchased;
 		_gEBI('wso-numberOfSharesAcquired').value=this.userData.ws2016.numberOfSharesAcquired;
 		_gEBI('wso-amountOfInvestment').value=this.userData.ws2016.amountOfInvestment.toFixed(2)+'€';
 		_gEBI('wso-amundiLogin').value=this.userData.amundiAccount.login;
 		_gEBI('wso-amundiPassword').value=this.userData.amundiAccount.pwd;
+
+		// navigator.onLine
 	};
 
 	/**
@@ -205,6 +221,7 @@
 		this.displayData(_window);
 
 		var _gEBI = _window.document.getElementById.bind(_window.document);
+		var _gM = chrome.i18n.getMessage;
 		_gEBI('wso-amundiLogin').addEventListener('keyup',function(){
 			that.userData.amundiAccount.login = this.value;
 			that.saveData();
@@ -220,11 +237,11 @@
 			that.displayData(_window);
 			that.displayBadgeText();
 		});
-		/* TODO: i18n w/ variable
+		//* TODO: i18n w/ variable
 		this.getNumberOfUsers()
 			.then(_numberOfUsers=>{
 				if(_numberOfUsers!==null){
-					_gEBI('wso-numberOfUsers').innerHTML = 'Déjà plus de '+_numberOfUsers+' utilisateurs !';
+					_gEBI('wso-numberOfUsers').innerHTML = _gM('numberOfUsers',_numberOfUsers);
 				}
 			});
 		//*/
