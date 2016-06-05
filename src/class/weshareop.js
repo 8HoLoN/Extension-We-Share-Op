@@ -237,14 +237,13 @@
 			that.displayData(_window);
 			that.displayBadgeText();
 		});
-		//* TODO: i18n w/ variable
+
 		this.getNumberOfUsers()
 			.then(_numberOfUsers=>{
 				if(_numberOfUsers!==null){
 					_gEBI('wso-numberOfUsers').innerHTML = _gM('numberOfUsers',_numberOfUsers);
 				}
 			});
-		//*/
 	};
 
 	WeShareOp.prototype.loginOnAmundiTab = function(){
