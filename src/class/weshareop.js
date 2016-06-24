@@ -181,6 +181,13 @@
 	WeShareOp.prototype.displayData = function(_window){// todo move compute to the right method
 		var _gEBI = _window.document.getElementById.bind(_window.document);
 		if(this.financeData.value){
+			//_gEBI('wso-statsDate').innerHTML = '('+this.financeData.date.toISOString()+')';
+			_gEBI('wso-statsDate').innerHTML = '('+
+				moment(this.financeData.date)
+					.local()
+					.locale(this.currentLocale)
+					.format('LLLL')
+				+')';
 			_gEBI('wso-sharesValue').value = this.financeData.value.toFixed(2)+'€';
 			_gEBI('wso-investmentValue').value = (this.financeData.value*this.userData.ws2016.numberOfSharesAcquired).toFixed(2)+'€';
 			_gEBI('wso-capitalGain').value = ((this.financeData.value - this.BUYING_PRICE)*this.userData.ws2016.numberOfSharesAcquired).toFixed(2)+'€';
@@ -219,6 +226,7 @@
 
 		this.displayI18n(_window);
 		this.displayData(_window);
+		this.updateFinanceData();
 
 		var _gEBI = _window.document.getElementById.bind(_window.document);
 		var _gM = chrome.i18n.getMessage;
@@ -342,6 +350,20 @@
 			});
 	};
 
+	WeShareOp.prototype.getRealTimeFinancialData = function(){
+		return this.send('https://finance.google.com/finance/info?client=ig&q=EPA:SOP')
+			.then(_xhr=>{
+				var _realTimeFinancialData = _xhr.responseText.substr(4);
+				_realTimeFinancialData = JSON.parse(_realTimeFinancialData)[0];
+				//console.log(_realTimeFinancialData);
+				return _realTimeFinancialData;
+			})
+			.catch((_e)=>{
+				console.log('error : realtime financial data',_e);
+				return null;
+			});
+	};
+
 	WeShareOp.prototype.getFinanceData = function(_ok){
 		var that = this;
 		
@@ -368,6 +390,23 @@
 
 	WeShareOp.prototype.getPriceUpdates = function(_callback){
 		var that = this;
+
+		this.getRealTimeFinancialData()
+			.then(_financialData=>{
+				console.log(_financialData);
+				that.financeData.shareName = _financialData.t;
+				//that.financeData.date = new Date(_financialData.lt_dts);
+				that.financeData.date = moment.tz(_financialData.lt_dts.slice(0,-1),"Europe/Paris").format();
+				that.financeData.value = +_financialData.l;
+				that.financeData.changePoint = _financialData.c;
+				that.financeData.changePercent = _financialData.cp;
+				_callback();
+			})
+			.catch((_e)=>{
+				console.log('error : parse realtime financial data',_e);
+				return null;
+			});
+		/*
 		this.getFinanceData(function(_financeData){
 			//console.log(that);
 			that.financeData.shareName = _financeData.PriceUpdates[0][0][2];
@@ -377,21 +416,22 @@
 			that.financeData.changePoint = _financeData.PriceUpdates[0][0][1][1];
 			that.financeData.changePercent = _financeData.PriceUpdates[0][0][1][2];
 			
-			/*
-			console.log(_financeData);
-			console.log('valeur',_financeData.PriceUpdates[0][0][1][0]);// valeur
-			console.log('variation',_financeData.PriceUpdates[0][0][1][1]);// différence (variation en point) depuis la dernière ouverture
-			console.log('variation%',_financeData.PriceUpdates[0][0][1][2]);// derivée (variation en %) depuis la dernière ouverture
-			console.log('sens',_financeData.PriceUpdates[0][0][1][3]);// 1 positive / 0 negative
-			console.log('name',_financeData.PriceUpdates[0][0][2]);// action name
-			console.log('date',_financeData.PriceUpdates[0][0][3]);// date
-			
-			console.log('accurateValue',_financeData.PriceUpdates[0][0][1][8][1]);// valeur
-			console.log('accurateVariation',_financeData.PriceUpdates[0][0][1][9][1]);// différence (variation en point) depuis la dernière ouverture
-			console.log('accurateVariation%',_financeData.PriceUpdates[0][0][1][10][1]);// derivée (variation en %) depuis la dernière ouverture
-			//*/
+
+			// console.log(_financeData);
+			// console.log('valeur',_financeData.PriceUpdates[0][0][1][0]);// valeur
+			// console.log('variation',_financeData.PriceUpdates[0][0][1][1]);// différence (variation en point) depuis la dernière ouverture
+			// console.log('variation%',_financeData.PriceUpdates[0][0][1][2]);// derivée (variation en %) depuis la dernière ouverture
+			// console.log('sens',_financeData.PriceUpdates[0][0][1][3]);// 1 positive / 0 negative
+			// console.log('name',_financeData.PriceUpdates[0][0][2]);// action name
+			// console.log('date',_financeData.PriceUpdates[0][0][3]);// date
+            //
+			// console.log('accurateValue',_financeData.PriceUpdates[0][0][1][8][1]);// valeur
+			// console.log('accurateVariation',_financeData.PriceUpdates[0][0][1][9][1]);// différence (variation en point) depuis la dernière ouverture
+			// console.log('accurateVariation%',_financeData.PriceUpdates[0][0][1][10][1]);// derivée (variation en %) depuis la dernière ouverture
+
 			_callback();
 		});
+		//*/
 	};
 
 	// http://stackoverflow.com/questions/20279484/how-to-access-the-correct-this-context-inside-a-callback

@@ -17,6 +17,9 @@
 
   "background": {
     "scripts": [
+      "/lib/moment-with-locales.min.js",
+      //"/lib/moment-timezone.min.js",
+      "/lib/moment-timezone-with-data.min.js",
       "/lib/sjcl/sjcl.min.js",
       "/class/weshareop.js",
       "/bg/background.js"
