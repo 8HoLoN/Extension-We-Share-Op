@@ -86,6 +86,15 @@
     "message": "(Taxes et contributions sociales incluses)",
     "description": "Infobulle pour le montant initial de l'investissement."
   },
+  // Options
+  "optionsTabLabel": {
+    "message": "Options",
+    "description": "Nom de l'onglet des options."
+  },
+  "showOverallGainOnBadgeLabel": {
+    "message": "Afficher le bénéfice global au lieu de la plus value sur l'icône.",
+    "description": "Nom du libellé de l'option pour afficher le bénéfice global au lieu de la plus value sur l'icône."
+  },
   // Amundi
   "amundiAccountTabLabel": {
     "message": "Connexion à Amundi",

@@ -24,4 +24,4 @@ Chrome Extension to track the capital gain of the shares within the "We Share" o
 * Install packages needed to build the extension with NPM:
     * `npm install --only=dev`
 * Then run the build command line:
-    * `npm run gulp build`
+    * `npm run gulp build.packageAll`

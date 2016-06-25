@@ -3,7 +3,7 @@
   "manifest_version": 2,
   "name": "__MSG_extName__",
   "short_name": "__MSG_extShortName__",
-  "version": "0.0.9",
+  "version": "0.1.0",
 
   // Recommended
   "default_locale": "en",
@@ -17,9 +17,9 @@
 
   "background": {
     "scripts": [
-      "/lib/moment-with-locales.min.js",
-      //"/lib/moment-timezone.min.js",
-      "/lib/moment-timezone-with-data.min.js",
+      "/lib/moment/moment-with-locales.min.js",
+      //"/lib/moment/moment-timezone.min.js",
+      "/lib/moment/moment-timezone-with-data.min.js",
       "/lib/sjcl/sjcl.min.js",
       "/class/weshareop.js",
       "/bg/background.js"

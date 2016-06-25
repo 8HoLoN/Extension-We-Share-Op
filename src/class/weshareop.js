@@ -29,7 +29,10 @@
 				numberOfSharesAcquired: null,
 				amountOfInvestment: null
 			},
-			amundiAccount : {
+			options:{
+				showOverallGainOnBadge: false
+			},
+			amundiAccount: {
 				login: '',
 				pwd: ''
 			}
@@ -84,6 +87,7 @@
 				}catch (e){
 					console.log(e);
 				}
+				this.saveData();
 				this.computeData();
 				this.updateFinanceData();
 			});
@@ -103,6 +107,7 @@
 		this.userData.ws2016.numberOfSharesPurchased = _userData.ws2016.numberOfSharesPurchased;
 		this.userData.amundiAccount.login = _userData.amundiAccount.login;
 		this.userData.amundiAccount.pwd = _userData.amundiAccount.pwd;
+		this.userData.options.showOverallGainOnBadge = _userData.options.showOverallGainOnBadge;
 	};
 
 	WeShareOp.prototype.computeData = function(){
@@ -136,6 +141,9 @@
 		_gEBI("wso-buyingPrice").title = _gM("buyingPriceTitle");
 		_gEBI("wso-amountOfInvestmentLabel").innerHTML = _gM("amountOfInvestmentLabel");
 		_gEBI("wso-amountOfInvestment").title = _gM("amountOfInvestmentTitle");
+
+		_gEBI("wso-optionsTabLabel").innerHTML = _gM("optionsTabLabel");
+		_gEBI("wso-showOverallGainOnBadgeLabel").innerHTML = _gM("showOverallGainOnBadgeLabel");
 
 		_gEBI("wso-amundiAccountTabLabel").innerHTML = _gM("amundiAccountTabLabel");
 		_gEBI("wso-amundiLoginLabel").innerHTML = _gM("amundiLoginLabel");
@@ -197,6 +205,7 @@
 		_gEBI("wso-numberOfSharesPurchased").value=this.userData.ws2016.numberOfSharesPurchased;
 		_gEBI('wso-numberOfSharesAcquired').value=this.userData.ws2016.numberOfSharesAcquired;
 		_gEBI('wso-amountOfInvestment').value=this.userData.ws2016.amountOfInvestment.toFixed(2)+'€';
+		_gEBI('wso-showOverallGainOnBadge').checked = this.userData.options.showOverallGainOnBadge;
 		_gEBI('wso-amundiLogin').value=this.userData.amundiAccount.login;
 		_gEBI('wso-amundiPassword').value=this.userData.amundiAccount.pwd;
 
@@ -245,6 +254,12 @@
 			that.displayData(_window);
 			that.displayBadgeText();
 		});
+		_gEBI('wso-showOverallGainOnBadge').addEventListener('change',function(){
+			that.userData.options.showOverallGainOnBadge = this.checked;
+			that.saveData();
+			that.displayBadgeText();
+		});
+
 
 		this.getNumberOfUsers()
 			.then(_numberOfUsers=>{
@@ -450,6 +465,11 @@
 
 	WeShareOp.prototype.displayBadgeText = function(){
 		var _gain = (this.financeData.value - this.BUYING_PRICE)*this.userData.ws2016.numberOfSharesAcquired;
+
+		if( this.userData.options.showOverallGainOnBadge === true ){
+			_gain = (this.financeData.value*this.userData.ws2016.numberOfSharesAcquired)-this.userData.ws2016.amountOfInvestment;
+		}
+
 		var _sign = '-';
 		if( _gain > 0 ){
 			_sign = '+';

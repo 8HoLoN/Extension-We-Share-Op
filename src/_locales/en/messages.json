@@ -86,6 +86,15 @@
     "message": "(Excluding taxes and social security contributions)",
     "description": "Tooltip for the amount of investment."
   },
+  // Options
+  "optionsTabLabel": {
+    "message": "Options",
+    "description": "Name of the options tab."
+  },
+  "showOverallGainOnBadgeLabel": {
+    "message": "Show the overall gain instead of the capital gain on the icon.",
+    "description": "Name of the label of the option to show the overall gain instead of the capital gain on the icon."
+  },
   // Amundi
   "amundiAccountTabLabel": {
     "message": "Amundi Account",
