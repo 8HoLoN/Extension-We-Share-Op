@@ -191,7 +191,7 @@
     "description": "Libellé pour l'accès à la page d'évaluation de l'extension sur le Chrome Web Store."
   },
   "feedbackLabel": {
-    "message": "Retours & suggestions :",
+    "message": "Retours, suggestions et erreur de traduction :",
     "description": "Libellé pour les retours et suggestions."
   },
   // modal

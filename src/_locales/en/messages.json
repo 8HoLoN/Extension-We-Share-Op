@@ -191,7 +191,7 @@
     "description": "Link message for the Chrome Web Store reviews page."
   },
   "feedbackLabel": {
-    "message": "Feedback & suggestions:",
+    "message": "Feedback, suggestions and mistranslation:",
     "description": "Label for feedback and suggestions."
   },
   // modal
