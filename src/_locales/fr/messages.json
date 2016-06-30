@@ -8,7 +8,7 @@
     "description": "Nom abrégé de l'extension (12 caractères au maximum)"
   },
   "extDescription": {
-    "message": "Chrome Extension to track the capital gain of the shares within the \"We Share\" operation.",
+    "message": "Chrome Extension pour suivre la plus-value des actions dans l'opération \"We Share\".",
     "description": "Description de l'extension."
   },
   // browser_actions
