@@ -7,7 +7,7 @@
  * @author 8HoLoN / https://github.com/8HoLoN/
  * < 8holon [at] gmail.com >
  */
-(function(_g,WeShareOp){
+(function(WeShareOp){
 	"use strict";
 
 	WeShareOp.prototype.displayI18n = function(_window){
@@ -127,5 +127,5 @@
 		chrome.browserAction.setTitle({title : this.appName+' ('+_sign+_gain.toFixed(2)+'€)' });
 	};
 
-})(this||window,WeShareOp);
+})(WeShareOp);
 
