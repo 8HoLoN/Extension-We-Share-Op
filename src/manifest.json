@@ -23,6 +23,7 @@
       "/lib/sjcl/sjcl.min.js",
       "/class/weshareop.js",
       "/class/weshareop-display.js",
+      "/class/weshareop-singleton.js",
       "/bg/background.js"
     ],
     "persistent": true

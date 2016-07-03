@@ -78,7 +78,7 @@
 
 	};
 
-	WeShareOp.prototype.displayData = function(_window){// todo move compute to the right method
+	WeShareOp.prototype.displayData = function(_window){
 		var _gEBI = _window.document.getElementById.bind(_window.document);
 		if(this.financeData.value){
 			//_gEBI('wso-statsDate').innerHTML = '('+this.financeData.date.toISOString()+')';
@@ -126,8 +126,6 @@
 
 		chrome.browserAction.setTitle({title : this.appName+' ('+_sign+_gain.toFixed(2)+'€)' });
 	};
-
-	_g.WeShareOp = new WeShareOp();
 
 })(this||window,WeShareOp);
 
