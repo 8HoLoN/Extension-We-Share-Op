@@ -1,3 +1,41 @@
+.center{
+    text-align: center;
+}
+.inline-block{
+    display: inline-block;
+}
+.zeroPadding{
+    padding: 0;
+}
+
+/* logo */
+.wso-logo{
+    width: 34px;
+    margin-right: -6px;
+}
+
+/* modal launcher */
+.wso-modalLauncher{
+    margin-top: -3px;
+}
+
+/* quote */
+.wso-quote{
+    position: absolute;
+    bottom: 45px;
+    right: 25px;
+}
+.wso-quote blockquote{
+    margin-bottom: 0;
+}
+
+/* highcharts container */
+.wso-highchartsContainer{
+    height: 303px;
+    width: 100%;
+    line-height: 300px;
+}
+
 body{
     background-color: snow;/* snow ivory */
 }
@@ -68,9 +106,6 @@ a.bicon span{
 }
 .logo-title h1:hover{
     _background-color: lightsteelblue;
-}
-.center{
-    text-align: center;
 }
 
 /* loading */

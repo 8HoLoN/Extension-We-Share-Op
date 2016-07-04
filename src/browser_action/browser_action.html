@@ -21,14 +21,13 @@
 	</head>
 	<body>
 		<div id="mainPopup">
-			
-				<div class="logo-title center">
-					<h1 class="btn btn-primary">We <img style="width: 34px;margin-right: -6px;" src="../icons/icon48.png">hare Op.</h1>
-				</div>
+			<div class="logo-title center">
+				<h1 class="btn btn-primary">We <img class="wso-logo" src="../icons/icon48.png">hare Op.</h1>
+			</div>
 
 			<div class="container">
-				<div style="text-align: center;">
-					<ul class="nav nav-tabs" style="display: inline-block;"><!-- nav-justified -->
+				<div class="center">
+					<ul class="nav nav-tabs inline-block"><!-- nav-justified -->
 						<!--<li class="active"><a data-toggle="tab" href="#home">Home</a></li>-->
 						<li class="active">
 							<a data-toggle="tab" href="#statsTab" class="bicon">
@@ -65,7 +64,7 @@
 								<h3  class="panel-title">
 									<span id="wso-statsTabLabel"></span>
 									<span id="wso-statsDate" class="small"></span>
-									<div style="margin-top: -3px" class="btn-group pull-right">
+									<div class="btn-group pull-right wso-modalLauncher">
 										<!-- Trigger the modal with a button -->
 										<a class="btn btn-primary btn-xs pull-right" data-toggle="modal" data-target="#wso-modal" href="#">
 											<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
@@ -291,8 +290,8 @@
 											</li>
 										</ul>
 									</div>
-									<div class="col-xs-4" style="position: absolute;bottom: 45px;right: 25px;">
-										<blockquote class="blockquote-reverse" style="margin-bottom: 0;">
+									<div class="col-xs-4 wso-quote">
+										<blockquote class="blockquote-reverse">
 											<p>We share hope.</p>
 											<footer>Alexandre REMY<!--<cite title="Source Title">Source Title</cite>--></footer>
 										</blockquote>
@@ -320,13 +319,13 @@
 						<h4 class="modal-title">Modal Header</h4>
 					</div>
 					-->
-					<div class="modal-body center" style="padding: 0;">
+					<div class="modal-body center zeroPadding">
 						<!--<p>Some text in the modal.</p>-->
-						<div id="wso-highchartsContainer" style="height: 303px; width: 100%;line-height: 300px;"><!-- 620px; -->
+						<div id="wso-highchartsContainer" class="wso-highchartsContainer">
 							<button class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> <span id="wso-loading"></span></button>
 						</div>
 					</div>
-					<div class="modal-footer" style="padding: 0;text-align: center;">
+					<div class="modal-footer center zeroPadding">
 						<button id="wso-closeModal" type="button" class="btn-xs btn-default" data-dismiss="modal"></button>
 					</div>
 				</div>
