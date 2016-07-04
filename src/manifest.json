@@ -32,7 +32,7 @@
   "options_page": "",
   "browser_action": {
     "default_icon": "icons/icon19.png",
-    "default_title": "We Share Op.",
+    "default_title": "__MSG_extName__",
     "default_popup": "/browser_action/browser_action.html"
   },
   "minimum_chrome_version": "40",

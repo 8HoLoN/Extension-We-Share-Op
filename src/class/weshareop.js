@@ -12,7 +12,7 @@
 
 	function WeShareOp(){
 		this.version = chrome.runtime.getManifest().version;
-		this.appName = 'We Share Op.';
+		this.appName = chrome.runtime.getManifest().name;
 		this.alarmName = 'WeShareOp';
 		this.updateDelayInSecond = 61;/* 10 600 */
 
