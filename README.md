@@ -4,8 +4,10 @@ Chrome Extension to track the capital gain of the shares within the "We Share" o
 ## Features
 * Simple and intuitive interface,
    * A personalized calculation of your profits,
-   * Direct access to your Amoundi account,
+   * Direct access to your Amundi account,
+   * Customizable icon value,
 * Clear visualization of the evolution of the share value on the stock exchange,
+    * Viewing advanced stock chart,
 * Updated in real time,
 * AES-256 encryption for data storage,
 * i18n (Internationalization),
