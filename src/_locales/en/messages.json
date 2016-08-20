@@ -13,7 +13,7 @@
   },
   // browser_action
   // stats
-  "statsTabName": {
+  "statsTabLabel": {
     "message": "Statistics",
     "description": "Name of the statistics tab."
   },

@@ -62,7 +62,7 @@
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<h3  class="panel-title">
-									<span id="wso-statsTabLabel"></span>
+									<span data-i18n="statsTabLabel"></span>
 									<span id="wso-statsDate" class="small"></span>
 									<div class="btn-group pull-right wso-modalLauncher">
 										<!-- Trigger the modal with a button -->
@@ -75,23 +75,23 @@
 							<div class="panel-body">
 								<form class="form-horizontal" role="form">
 									<div class="form-group">
-										<label id="wso-sharesValueLabel" for="wso-sharesValue" class="control-label col-xs-3">Valeur de l'action</label>
+										<label data-i18n="sharesValueLabel" for="wso-sharesValue" class="control-label col-xs-3"></label>
 										<div class="col-xs-3">
-											<input id="wso-sharesValue" class="form-control" type="text" value="--.--€" readonly disabled data-toggle="tooltip" title="">
+											<input id="wso-sharesValue" class="form-control" type="text" value="--.--€" readonly disabled data-toggle="tooltip" data-i18n-title="sharesValueTitle">
 										</div>
-										<label id="wso-investmentValueLabel" for="wso-investmentValue" class="control-label col-xs-3">Valorisation</label><!-- valeur de l'investissement / valorisation-->
+										<label data-i18n="investmentValueLabel" for="wso-investmentValue" class="control-label col-xs-3"></label>
 										<div class="col-xs-3">
-											<input id="wso-investmentValue" class="form-control" type="text" value="--.--€" readonly disabled data-toggle="tooltip" title="">
+											<input id="wso-investmentValue" class="form-control" type="text" value="--.--€" readonly disabled data-toggle="tooltip" data-i18n-title="investmentValueTitle">
 										</div>
 									</div>
 									<div class="form-group">
-										<label id="wso-capitalGainLabel" for="wso-capitalGain" class="control-label col-xs-3">Plus value</label>
+										<label data-i18n="capitalGainLabel" for="wso-capitalGain" class="control-label col-xs-3"></label>
 										<div class="col-xs-3">
-											<input id="wso-capitalGain" class="form-control" type="text" value="--.--€" readonly disabled data-toggle="tooltip" data-placement="bottom" title="">
+											<input id="wso-capitalGain" class="form-control" type="text" value="--.--€" readonly disabled data-toggle="tooltip" data-placement="bottom" data-i18n-title="capitalGainTitle">
 										</div>
-										<label id="wso-overallGainLabel" for="wso-overallGain" class="control-label col-xs-3">Plus value global</label>
+										<label data-i18n="overallGainLabel" for="wso-overallGain" class="control-label col-xs-3"></label>
 										<div class="col-xs-3">
-											<input id="wso-overallGain" class="form-control" type="text" value="--.--€" readonly disabled data-toggle="tooltip" data-placement="bottom" title="">
+											<input id="wso-overallGain" class="form-control" type="text" value="--.--€" readonly disabled data-toggle="tooltip" data-placement="bottom" data-i18n-title="overallGainTitle">
 										</div>
 									</div>
 								</form>
@@ -108,16 +108,16 @@
 							<div class="panel panel-default">
 								<div class="panel-heading cursor-pointer" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
 									<h4 class="panel-title">
-										<a id="wso-sharesTabLabel">Actions</a>
+										<a data-i18n="sharesTabLabel"></a>
 									</h4>
 								</div>
 								<div id="collapse1" class="panel-collapse collapse in">
 									<div class="panel-body">
 										<form class="form-horizontal" role="form">
 											<div class="form-group">
-												<label id="wso-numberOfSharesPurchasedLabel" for="wso-numberOfSharesPurchased" class="control-label col-xs-3">Actions achetées</label>
+												<label data-i18n="numberOfSharesPurchasedLabel" for="wso-numberOfSharesPurchased" class="control-label col-xs-3"></label>
 												<div class="col-xs-3">
-													<select id="wso-numberOfSharesPurchased" class="form-control" data-toggle="tooltip" title="">
+													<select id="wso-numberOfSharesPurchased" class="form-control" data-toggle="tooltip" data-i18n-title="numberOfSharesPurchasedTitle">
 														<option>1</option>
 														<option>2</option>
 														<option>3</option>
@@ -135,19 +135,19 @@
 														<option>15</option>
 													</select>
 												</div>
-												<label id="wso-numberOfSharesAcquiredLabel" for="wso-numberOfSharesAcquired" class="control-label col-xs-3">Actions acquises</label>
+												<label data-i18n="numberOfSharesAcquiredLabel" for="wso-numberOfSharesAcquired" class="control-label col-xs-3"></label>
 												<div class="col-xs-3">
-													<input id="wso-numberOfSharesAcquired" class="form-control" type="text" placeholder="" readonly disabled data-toggle="tooltip" title="" >
+													<input id="wso-numberOfSharesAcquired" class="form-control" type="text" placeholder="" readonly disabled data-toggle="tooltip" data-i18n-title="numberOfSharesAcquiredTitle">
 												</div>
 											</div>
 											<div class="form-group">
-												<label id="wso-buyingPriceLabel" for="wso-buyingPrice" class="control-label col-xs-3">Prix d'achat</label>
+												<label data-i18n="buyingPriceLabel" for="wso-buyingPrice" class="control-label col-xs-3"></label>
 												<div class="col-xs-3">
-													<input id="wso-buyingPrice" class="form-control" type="text" value="101.62€" readonly disabled data-toggle="tooltip" data-placement="bottom" title="">
+													<input id="wso-buyingPrice" class="form-control" type="text" value="101.62€" readonly disabled data-toggle="tooltip" data-placement="bottom" data-i18n-title="buyingPriceTitle">
 												</div>
-												<label id="wso-amountOfInvestmentLabel" for="wso-amountOfInvestment" class="control-label col-xs-3">Investissement</label>
+												<label data-i18n="amountOfInvestmentLabel" for="wso-amountOfInvestment" class="control-label col-xs-3"></label>
 												<div class="col-xs-3">
-													<input id="wso-amountOfInvestment" class="form-control" type="text" value="3182.7384€" readonly disabled data-toggle="tooltip" data-placement="bottom" title="">
+													<input id="wso-amountOfInvestment" class="form-control" type="text" value="3182.7384€" readonly disabled data-toggle="tooltip" data-placement="bottom" data-i18n-title="amountOfInvestmentTitle">
 												</div>
 											</div>
 										</form>
@@ -157,7 +157,7 @@
 							<div class="panel panel-default">
 								<div class="panel-heading cursor-pointer" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
 									<h4 class="panel-title">
-										<a id="wso-optionsTabLabel"></a>
+										<a data-i18n="optionsTabLabel"></a>
 									</h4>
 								</div>
 								<div id="collapse2" class="panel-collapse collapse">
@@ -166,7 +166,7 @@
 											<div class="checkbox col-xs-12 ">
 												<label>
 													<input id="wso-showOverallGainOnBadge" type="checkbox" value="">
-													<span id="wso-showOverallGainOnBadgeLabel"></span>
+													<span data-i18n="showOverallGainOnBadgeLabel"></span>
 												</label>
 											</div>
 										</form>
@@ -177,27 +177,27 @@
 							<div class="panel panel-default">
 								<div class="panel-heading cursor-pointer" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
 									<h4 class="panel-title">
-										<a id="wso-amundiAccountTabLabel"></a>
+										<a data-i18n="amundiAccountTabLabel"></a>
 									</h4>
 								</div>
 								<div id="collapse3" class="panel-collapse collapse">
 									<div class="panel-body">
 										<form class="form-horizontal" role="form">
 											<div class="form-group">
-												<label id="wso-amundiLoginLabel" for="wso-amundiLogin" class="control-label col-xs-3">Name</label>
+												<label data-i18n="amundiLoginLabel" for="wso-amundiLogin" class="control-label col-xs-3"></label>
 												<div class="col-xs-9">
-													<input id="wso-amundiLogin" type="text" class="form-control" placeholder="Enter login">
+													<input id="wso-amundiLogin" type="text" class="form-control" data-i18n-placeholder="amundiLoginPlaceholder">
 												</div>
 											</div>
 											<div class="form-group">
-												<label id="wso-amundiPasswordLabel" for="wso-amundiPassword" class="control-label col-xs-3">Password</label>
+												<label data-i18n="amundiPasswordLabel" for="wso-amundiPassword" class="control-label col-xs-3"></label>
 												<div class="col-xs-9">
-													<input id="wso-amundiPassword" type="password" class="form-control"  placeholder="Enter password">
+													<input id="wso-amundiPassword" type="password" class="form-control" data-i18n-placeholder="amundiPasswordPlaceholder">
 												</div>
 											</div>
 										</form>
 										<div class="col-xs-offset-3">
-											<a id="wso-amundiAccess" class="btn btn-default"></a>
+											<a id="wso-amundiAccess" data-i18n="amundiAccess" class="btn btn-default"></a>
 										</div>
 									</div>
 								</div>
@@ -218,35 +218,35 @@
 
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<h3 id="wso-infoTabLabel" class="panel-title">Marché : Euronext Paris (EPA:)</h3>
+								<h3 data-i18n="infoTabLabel" class="panel-title"></h3>
 							</div>
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-xs-6">
 										<ul>
-											<li><span id="wso-openingLabel">Ouverture :</span>
+											<li><span data-i18n="openingLabel"></span>
 												<ul class="custom-bullet">
-													<li><span id="wso-openingDays">Du lundi au vendredi</span></li>
+													<li><span data-i18n="openingDays"></span></li>
 												</ul>
 											</li>
-											<li><span id="wso-schedulesLabel">Horaires :</span>
+											<li><span data-i18n="schedulesLabel"></span>
 												<ul class="custom-bullet">
-													<li><span id="wso-preopeningLabel">Préouverture : 7h15 à 9h00</span></li>
-													<li><span id="wso-sessionLabel">Séance : 9h00 à 17h30</span></li>
-													<li><span id="wso-preclosingLabel">Préclôture : 17h30 à 17h35</span></li>
+													<li><span data-i18n="preopeningLabel"></span></li>
+													<li><span data-i18n="sessionLabel"></span></li>
+													<li><span data-i18n="preclosingLabel"></span></li>
 												</ul>
 											</li>
 										</ul>
 									</div>
 									<div class="col-xs-6">
 										<ul>
-											<li><span id="wso-exceptLabel">Sauf :</span>
+											<li><span data-i18n="exceptLabel"></span>
 												<ul class="custom-bullet">
-													<li><span id="wso-goodFriday">Vendredi Saint</span></li>
-													<li><span id="wso-easterMonday">Lundi de Pâques</span></li>
-													<li><span id="wso-1stMay">1er mai (Fête du travail)</span></li>
-													<li><span id="wso-25thDecember">25 décembre (Noël)</span></li>
-													<li><span id="wso-26thDecember">26 décembre (lendemain de Noël)</span></li>
+													<li><span data-i18n="goodFriday"></span></li>
+													<li><span data-i18n="easterMonday"></span></li>
+													<li><span data-i18n="1stMay"></span></li>
+													<li><span data-i18n="25thDecember"></span></li>
+													<li><span data-i18n="26thDecember"></span></li>
 												</ul>
 											</li>
 										</ul>
@@ -258,17 +258,17 @@
 					<div id="aboutTab" class="tab-pane fade">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<h3 id="wso-aboutTabLabel" class="panel-title">About</h3>
+								<h3 data-i18n="aboutTabLabel" class="panel-title"></h3>
 							</div>
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-xs-8">
 										<ul class="custom-bullet">
-											<li><span id="wso-versionLabel"></span> <span id="wso-version"></span></li>
-											<li><span id="wso-links"></span>
+											<li><span data-i18n="versionLabel"></span> <span id="wso-version"></span></li>
+											<li><span data-i18n="links"></span>
 												<ul>
 													<li><!-- https://chrome.google.com/webstore/detail/?hl=fr -->
-														<a id="wso-reviews" href="https://chrome.google.com/webstore/detail/we-share-op/nobbmhfbgoapjobjbipoagpahklgkpch/reviews" target="_blank" >
+														<a data-i18n="reviews" href="https://chrome.google.com/webstore/detail/we-share-op/nobbmhfbgoapjobjbipoagpahklgkpch/reviews" target="_blank" >
 
 														</a>
 													</li>
@@ -279,7 +279,7 @@
 													</li>
 												</ul>
 											</li>
-											<li><span id="wso-feedbackLabel"></span>
+											<li><span data-i18n="feedbackLabel"></span>
 												<ul>
 													<li>
 														<a id="wso-feedback" href="#" target="_top" >
@@ -322,11 +322,11 @@
 					<div class="modal-body center zeroPadding">
 						<!--<p>Some text in the modal.</p>-->
 						<div id="wso-highchartsContainer" class="wso-highchartsContainer">
-							<button class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> <span id="wso-loading"></span></button>
+							<button class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> <span data-i18n="loading"></span></button>
 						</div>
 					</div>
 					<div class="modal-footer center zeroPadding">
-						<button id="wso-closeModal" type="button" class="btn-xs btn-default" data-dismiss="modal"></button>
+						<button data-i18n="closeModal" type="button" class="btn-xs btn-default" data-dismiss="modal"></button>
 					</div>
 				</div>
 
