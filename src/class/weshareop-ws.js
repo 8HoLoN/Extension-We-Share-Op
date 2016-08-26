@@ -47,6 +47,21 @@
 			});
 	};
 
+	WeShareOp.prototype.getHistoricalFinancialData = function(){
+		var _quandlUrl = "https://www.quandl.com/api/v3/datasets/YAHOO/PA_SOP.json?start_date=2000-01-01&end_date=2017-12-31&order=asc&collapse=none&api_key=GRfcs7vGMfgM95sGTqzH";
+		return this.asyncSend(_quandlUrl)
+			.then(_xhr=>{
+				var _historicalFinancialData = _xhr.responseText;
+				_historicalFinancialData = JSON.parse(_historicalFinancialData);
+				//console.log(_historicalFinancialData);
+				return _historicalFinancialData;
+			})
+			.catch((_e)=>{
+				console.log('error : historical financial data',_e);
+				return null;
+			});
+	};
+
 	WeShareOp.prototype.getRealTimeFinancialData = function(){
 		return this.asyncSend('https://finance.google.com/finance/info?client=ig&q=EPA:SOP')
 			.then(_xhr=>{

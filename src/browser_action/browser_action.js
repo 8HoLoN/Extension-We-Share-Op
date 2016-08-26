@@ -25,52 +25,44 @@
 		$('[data-toggle="tooltip"]:not(:disabled)').tooltip();
 
 		// tooltip for disabled elements
-		$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-			var target = $(e.target).attr("href") // activated tab
+		$('a[data-toggle="tab"]').on('shown.bs.tab', function (_e) {
+			//var target = $(_e.target).attr("href");// activated tab
 			$('input:disabled, button:disabled').map(function (_k,_v) {
 				$(_v).next().width($(_v).outerWidth());
 			});
 		});
-		$('input:disabled, button:disabled').after(function (e) {
-			var d = $("<div>");
-			var i = $(this);
+		$('input:disabled, button:disabled').after(function (_e) {
+			var _div = $("<div>");
+			var _input = $(this);
 
-			d.css({
-				height: i.outerHeight(),
-				width: i.outerWidth(),
+			_div.css({
+				height: _input.outerHeight(),
+				width: _input.outerWidth(),
 				position: "absolute",
 				top: 0
 			});
 
-			//d.css(i.offset());
-			d.attr("title", i.attr("title"));
-			d.attr("data-placement", i.attr("data-placement"));
-			d.tooltip();
-			return d;
+			//_div.css(_input.offset());
+			_div.attr("title", _input.attr("title"));
+			_div.attr("data-placement", _input.attr("data-placement"));
+			_div.tooltip();
+			return _div;
 		});
 
 		// show modal
-		$('#wso-modal').on('show.bs.modal', function (e) {
+		var _wsoModal = $('#wso-modal');
+		_wsoModal.on('show.bs.modal', function (e) {
 			console.log("show");
-
-			var quandlDataSources = toPromise($.getJSON(quandlUrl, null))
-				.then(function(_data){
-					//console.log(_data);
-					var highStockJson = _data.dataset.data.map(function(d) {
+			WeShareOp.getHistoricalFinancialData()
+				.then(function (_data) {
+					var _highStockJson = _data.dataset.data.map(function(d) {
 						return [new Date(d[0]).getTime(), d[1],d[2],d[3],d[4]]
 					});
-					//console.log(highStockJson);
-					createStockChart(highStockJson);
-				});
-			/*
-			var target = $(e.target).attr("href") // activated tab
-			$('input:disabled, button:disabled').map(function (_k,_v) {
-				$(_v).next().width($(_v).outerWidth());
+					createStockChart(_highStockJson);
 			});
-			//*/
 		});
 		// hide modal
-		$('#wso-modal').on('hidden.bs.modal', function (e) {
+		_wsoModal.on('hidden.bs.modal', function (e) {
 			console.log("hide");
 		});
 
@@ -81,20 +73,19 @@
 	});
 
 	// stock quotes
+	/*
 	var toPromise = function ($promise) {
 		return new Promise(function (resolve, reject) {
 			$promise.then(resolve, reject);
 		});
 	};
+	//*/
 
 	//var stockQuotes = Array.apply(null,{length: 2000-2000+1}).map(function(_v,_k) { return 2000+_k; });
 	//var dataSources = stockQuotes.map(x=>getOneYearHistoricalData(x))
 	//	.map(x=>toPromise($.getJSON(x, null)));
 
 	//console.log(dataSources);
-
-	var quandlUrl = "https://www.quandl.com/api/v3/datasets/YAHOO/PA_SOP.json?start_date=2000-01-01&end_date=2017-12-31&order=asc&collapse=none&api_key=GRfcs7vGMfgM95sGTqzH";
-
 
 	function getOneYearHistoricalData(_year){
 		var sort = '| sort(field="Date", descending="false")';
