@@ -32,7 +32,7 @@
 /* highcharts container */
 .wso-highchartsContainer{
     height: 303px;
-    width: 100%;
+    width: 624px;/*100%*/
     line-height: 300px;
 }
 
