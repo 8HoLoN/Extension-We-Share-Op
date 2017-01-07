@@ -55,8 +55,8 @@
 
 		// amundi
 		this.amundiTabId = null;
-		this.amundiHomeUrl = 'https://www.amundi-ee.com/part/home_login';
-		this.amundiLoggingUrl = 'https://www.amundi-ee.com/part/home_priv_synth';
+		this.amundiHomeUrl = 'https://www.amundi-ee.com/psf/#login';//https://www.amundi-ee.com/part/home_login';
+		this.amundiLoggingUrl = 'https://www.amundi-ee.com/psf/authenticate';//'https://www.amundi-ee.com/part/home_priv_synth';
 
 		// local language
 		this.currentLocale = chrome.i18n.getMessage("@@ui_locale");
@@ -185,19 +185,39 @@
 	};
 
 	WeShareOp.prototype.loginOnAmundiTab = function(){
+
+	    var login = "function login(){"+
+            "$.ajax({"+
+                "type: 'POST',"+
+                "url: 'https://www.amundi-ee.com/psf/authenticate',"+
+                "contentType: 'application/json; charset=utf-8',"+
+                "dataType: 'json',"+
+                "data: JSON.stringify({username: '"+this.userData.amundiAccount.login+"', password: '"+this.userData.amundiAccount.pwd+"'}),"+
+                "success:function(){location.reload(true);}"+
+            "});"+
+        "}";
+
 		chrome.tabs.executeScript(this.amundiTabId, {
 			runAt:'document_end',
 			code: ';(function(){'+
-				redirect.toString()+
-				"redirect('"+this.amundiLoggingUrl+"',{"+
-					"method:'POST',"+
-					"target:'_self',"+
-					"data:{"+
-					"	mail:"+this.userData.amundiAccount.login+","+
-					"	password:"+this.userData.amundiAccount.pwd+","+
-					"	connection:''"+
-					"}"+
-				"});"+
+                "var _injectedJSContent = ''"+
+                "+\""+login+"\" "+
+                "+'login();'"+
+                ";"+
+                "var _script = document.createElement('script');"+
+                "var _code = document.createTextNode('(function(){'+_injectedJSContent+'})();');"+
+                "_script.appendChild(_code);"+
+                "(document.body || document.head).appendChild(_script);"+
+				//redirect.toString()+
+				//"redirect('"+this.amundiLoggingUrl+"',{"+
+				//	"method:'POST',"+
+				//	"target:'_self',"+
+				//	"data:{"+
+				//	"	mail:"+this.userData.amundiAccount.login+","+
+				//	"	password:"+this.userData.amundiAccount.pwd+","+
+				//	"	connection:''"+
+				//	"}"+
+				//"});"+
 				"return 0xff08;"+
 			"})();"}, function(_res){
 			// _res[0]===0xff08
