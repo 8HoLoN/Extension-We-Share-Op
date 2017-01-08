@@ -131,7 +131,24 @@
 				tooltip: {
 					valueDecimals: 2
 				},
+                id : 'dataseries'
 				//turboThreshold:0
+			},{
+                type : 'flags',
+                data : [{
+                    x : Date.UTC(2016, 5, 24),
+                    title : 'B',
+                    text : 'Brexit: UK votes to leave the EU.'
+                }, {
+                    x : Date.UTC(2016, 4, 18),
+                    title : 'S',
+                    text : 'Start of the 5 years operation until 2021-05-18.'
+                }],
+                color: Highcharts.getOptions().colors[0], // same as onSeries
+                fillColor: Highcharts.getOptions().colors[0],
+                onSeries : 'dataseries',
+                shape : 'circlepin',
+                width : 16
 			}]
 		});
 	}
