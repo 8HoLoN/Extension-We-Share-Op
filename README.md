@@ -1,4 +1,6 @@
 # Extension-We-Share-Op
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9LWA3PBZBJ9ZW)
+
 Chrome Extension to track the capital gain of the shares within the "We Share" operation.
 
 ## Features
