@@ -53,10 +53,10 @@
 								<span class="sr-only">About:</span>
 							</a>
 						</li>
-					</ul>					
+					</ul>
 				</div>
 
-				
+
 				<div class="tab-content">
 					<div id="statsTab" class="tab-pane fade in active">
 						<div class="panel panel-default">
@@ -109,6 +109,12 @@
 								<div class="panel-heading cursor-pointer" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
 									<h4 class="panel-title">
 										<a data-i18n="sharesTabLabel"></a>
+										<div class="btn-group pull-right wso-modalLauncher">
+											<!-- Trigger the modal with a button -->
+											<a class="btn btn-xs pull-right" data-toggle="modal" data-target="" href="#">
+												<select id="wso-operationYear" class="form-control input-xs"><option value="2016">2016</option><option value="2017">2017</option></select>
+											</a>
+										</div>
 									</h4>
 								</div>
 								<div id="collapse1" class="panel-collapse collapse in">
@@ -118,21 +124,6 @@
 												<label data-i18n="numberOfSharesPurchasedLabel" for="wso-numberOfSharesPurchased" class="control-label col-xs-3"></label>
 												<div class="col-xs-3">
 													<select id="wso-numberOfSharesPurchased" class="form-control" data-toggle="tooltip" data-i18n-title="numberOfSharesPurchasedTitle">
-														<option>1</option>
-														<option>2</option>
-														<option>3</option>
-														<option>4</option>
-														<option>5</option>
-														<option>6</option>
-														<option>7</option>
-														<option>8</option>
-														<option>9</option>
-														<option>10</option>
-														<option>11</option>
-														<option>12</option>
-														<option>13</option>
-														<option>14</option>
-														<option>15</option>
 													</select>
 												</div>
 												<label data-i18n="numberOfSharesAcquiredLabel" for="wso-numberOfSharesAcquired" class="control-label col-xs-3"></label>
@@ -209,10 +200,10 @@
 						retour sur l'application
 						suggerer des evolutions
 						-->
-						<!-- http://seiyria.com/bootstrap-slider/ 
+						<!-- http://seiyria.com/bootstrap-slider/
 						<input id="ex8" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14"/>
 						-->
-						
+
 					</div>
 					<div id="infoTab" class="tab-pane fade">
 

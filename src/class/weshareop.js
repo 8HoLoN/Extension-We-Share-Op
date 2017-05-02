@@ -16,6 +16,8 @@
 		this.alarmName = 'WeShareOp';
 		this.updateDelayInSecond = 61;/* 10 600 */
 
+		this.operationYear = 2016;
+
 		Object.defineProperty( this, 'BUYING_PRICE', {
 			value: 101.62,
 			writable: false,
@@ -25,13 +27,25 @@
 
 		this.userData = {
 			ws2016 : {
-				numberOfSharesPurchased: 1,
+                numberMaxOfAvailableShares:15,
+				buyingPrice: 101.62,
+				numberOfSharesPurchased: 0,
 				numberOfSharesAcquired: null,
 				amountOfInvestment: null,
 				investmentValue: null,
 				capitalGain: null,
 				overallGain: null
 			},
+            ws2017 : {
+                numberMaxOfAvailableShares:14,
+                buyingPrice: 128.08,
+                numberOfSharesPurchased: 0,
+                numberOfSharesAcquired: null,
+                amountOfInvestment: null,
+                investmentValue: null,
+                capitalGain: null,
+                overallGain: null
+            },
 			options:{
 				showOverallGainOnBadge: false
 			},
@@ -91,7 +105,8 @@
 					console.log(e);
 				}
 				this.saveData();
-				this.computeData();
+				this.computeData("ws"+2016);
+                this.computeData("ws"+2017);
 				this.updateFinanceData();
 			});
 		});
@@ -108,21 +123,22 @@
 		console.log(sjcl.decrypt("wso"+chrome.runtime.id,_items.wsoUserData));
 		var _userData = JSON.parse(sjcl.decrypt("wso"+chrome.runtime.id,_items.wsoUserData));
 		this.userData.ws2016.numberOfSharesPurchased = _userData.ws2016.numberOfSharesPurchased;
+        this.userData.ws2017.numberOfSharesPurchased = _userData.ws2017.numberOfSharesPurchased;
 		this.userData.amundiAccount.login = _userData.amundiAccount.login;
 		this.userData.amundiAccount.pwd = _userData.amundiAccount.pwd;
 		this.userData.options.showOverallGainOnBadge = _userData.options.showOverallGainOnBadge;
 	};
 
-	WeShareOp.prototype.computeData = function(){
-		this.userData.ws2016.numberOfSharesAcquired = this.userData.ws2016.numberOfSharesPurchased * 2;
-		this.userData.ws2016.amountOfInvestment = this.userData.ws2016.numberOfSharesPurchased * this.BUYING_PRICE;
+	WeShareOp.prototype.computeData = function(_operationYear){
+		this.userData[_operationYear].numberOfSharesAcquired = this.userData[_operationYear].numberOfSharesPurchased * 2;
+		this.userData[_operationYear].amountOfInvestment = this.userData[_operationYear].numberOfSharesPurchased * this.userData[_operationYear].buyingPrice;
 		if(this.currentLocale==='fr'){// csg/crds
-			this.userData.ws2016.amountOfInvestment*=1.08;
+			this.userData[_operationYear].amountOfInvestment*=1.08;
 		}
 		if(this.financeData.value){
-			this.userData.ws2016.investmentValue = this.financeData.value*this.userData.ws2016.numberOfSharesAcquired;
-			this.userData.ws2016.capitalGain = (this.financeData.value - this.BUYING_PRICE)*this.userData.ws2016.numberOfSharesAcquired;
-			this.userData.ws2016.overallGain = (this.financeData.value*this.userData.ws2016.numberOfSharesAcquired)-this.userData.ws2016.amountOfInvestment;
+			this.userData[_operationYear].investmentValue = this.financeData.value*this.userData[_operationYear].numberOfSharesAcquired;
+			this.userData[_operationYear].capitalGain = (this.financeData.value - this.userData[_operationYear].buyingPrice)*this.userData[_operationYear].numberOfSharesAcquired;
+			this.userData[_operationYear].overallGain = (this.financeData.value*this.userData[_operationYear].numberOfSharesAcquired)-this.userData[_operationYear].amountOfInvestment;
 		}
 
 	};
@@ -163,12 +179,19 @@
 			that.saveData();
 		});
 		_gEBI('wso-numberOfSharesPurchased').addEventListener('change',function(){
-			that.userData.ws2016.numberOfSharesPurchased = +this.options[this.selectedIndex].value;
-			that.computeData();
+			that.userData["ws"+that.operationYear].numberOfSharesPurchased = +this.options[this.selectedIndex].value;
+			that.computeData("ws"+that.operationYear);
 			that.saveData();
 			that.displayData(_window);
 			that.displayBadgeText();
 		});
+        _gEBI('wso-operationYear').addEventListener('change',function(){
+            that.operationYear = +this.options[this.selectedIndex].value;
+            that.computeData("ws"+that.operationYear);
+            that.saveData();
+            that.displayData(_window);
+            that.displayBadgeText();
+        });
 		_gEBI('wso-showOverallGainOnBadge').addEventListener('change',function(){
 			that.userData.options.showOverallGainOnBadge = this.checked;
 			that.saveData();
@@ -314,7 +337,8 @@
 		this.getPriceUpdates(()=>{
 			console.log('priceUpdate',new Date());
 
-			this.computeData();
+			this.computeData("ws"+2016);
+            this.computeData("ws"+2017);
 			this.displayBadgeText();
 			if( this._window!==null ){
 				this.displayData(this._window);

@@ -46,14 +46,22 @@
 					.format('LLLL')
 				+')';
 			_gEBI('wso-sharesValue').value = this.financeData.value.toFixed(2)+'€';
-			_gEBI('wso-investmentValue').value = this.userData.ws2016.investmentValue.toFixed(2)+'€';
-			_gEBI('wso-capitalGain').value = this.userData.ws2016.capitalGain.toFixed(2)+'€';
-			_gEBI('wso-overallGain').value = this.userData.ws2016.overallGain.toFixed(2)+'€';
+			_gEBI('wso-investmentValue').value = (this.userData["ws2016"].investmentValue+this.userData["ws2017"].investmentValue).toFixed(2)+'€';
+			_gEBI('wso-capitalGain').value = (this.userData["ws2016"].capitalGain+this.userData["ws2017"].capitalGain).toFixed(2)+'€';
+			_gEBI('wso-overallGain').value = (this.userData["ws2016"].overallGain+this.userData["ws2017"].overallGain).toFixed(2)+'€';
 		}
 
-		_gEBI("wso-numberOfSharesPurchased").value=this.userData.ws2016.numberOfSharesPurchased;
-		_gEBI('wso-numberOfSharesAcquired').value=this.userData.ws2016.numberOfSharesAcquired;
-		_gEBI('wso-amountOfInvestment').value=this.userData.ws2016.amountOfInvestment.toFixed(2)+'€';
+        _gEBI("wso-operationYear").value=this.operationYear;
+        _gEBI("wso-numberOfSharesPurchased").innerHTML="";
+		for(var _i=0 ; _i<=this.userData["ws"+this.operationYear].numberMaxOfAvailableShares ; _i++){
+            var _option = document.createElement("option");
+            _option.text = _i;
+            _gEBI("wso-numberOfSharesPurchased").add(_option);
+		}
+		_gEBI("wso-numberOfSharesPurchased").value=this.userData["ws"+this.operationYear].numberOfSharesPurchased;
+		_gEBI('wso-numberOfSharesAcquired').value=this.userData["ws"+this.operationYear].numberOfSharesAcquired;
+        _gEBI('wso-buyingPrice').value=this.userData["ws"+this.operationYear].buyingPrice.toFixed(2)+'€';
+		_gEBI('wso-amountOfInvestment').value=this.userData["ws"+this.operationYear].amountOfInvestment.toFixed(2)+'€';
 		_gEBI('wso-showOverallGainOnBadge').checked = this.userData.options.showOverallGainOnBadge;
 		_gEBI('wso-amundiLogin').value=this.userData.amundiAccount.login;
 		_gEBI('wso-amundiPassword').value=this.userData.amundiAccount.pwd;
@@ -62,10 +70,10 @@
 	};
 
 	WeShareOp.prototype.displayBadgeText = function(){
-		var _gain = this.userData.ws2016.capitalGain;
+		var _gain = this.userData["ws2016"].capitalGain+this.userData["ws2017"].capitalGain;
 
 		if( this.userData.options.showOverallGainOnBadge === true ){
-			_gain = this.userData.ws2016.overallGain;
+			_gain = this.userData["ws2016"].overallGain+this.userData["ws2017"].overallGain;
 		}
 
 		var _sign = '-';

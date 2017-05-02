@@ -123,3 +123,12 @@ a.bicon span{
     from { transform: scale(1) rotate(0deg);}
     to { transform: scale(1) rotate(360deg);}
 }
+
+/* select xs bootstrap (for year select) */
+.input-xs {
+    height: 23px;
+    padding: 2px 5px;
+    font-size: 12px;
+    line-height: 1.5; /* If Placeholder of the input is moved up, rem/modify this. */
+    border-radius: 3px;
+}

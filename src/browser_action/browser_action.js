@@ -3,6 +3,8 @@
 	const w = chrome.extension.getBackgroundPage();
 	const WeShareOp = w.WeShareOp;
 
+	// https://chrome.google.com/webstore/detail/we-share-op/nobbmhfbgoapjobjbipoagpahklgkpch 301
+	// financedata blocking
 	WeShareOp.browserAction(window,function(){
 
 	});
@@ -64,6 +66,11 @@
 		// hide modal
 		_wsoModal.on('hidden.bs.modal', function (e) {
 			console.log("hide");
+		});
+
+		// desable click bubble for year select
+		$('select.input-xs').click(function(e){
+            e.stopPropagation();
 		});
 
 	});
