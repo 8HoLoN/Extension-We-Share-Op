@@ -56,10 +56,12 @@
 		_wsoModal.on('show.bs.modal', function (e) {
 			console.log("show");
 			WeShareOp.getHistoricalFinancialData()
-				.then(function (_data) {
+				.then(function (/*_data*/_highStockJson) {
+					/*
 					var _highStockJson = _data.dataset.data.map(function(d) {
 						return [new Date(d[0]).getTime(), d[1],d[2],d[3],d[4]]
 					});
+					//*/
 					createStockChart(_highStockJson);
 			});
 		});
