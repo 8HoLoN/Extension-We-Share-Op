@@ -62,7 +62,10 @@
 						return [new Date(d[0]).getTime(), d[1],d[2],d[3],d[4]]
 					});
 					//*/
-					createStockChart(_highStockJson);
+					if( _highStockJson ){
+                        createStockChart(_highStockJson);
+					}
+
 			});
 		});
 		// hide modal
