@@ -57,7 +57,7 @@
 
 		this._window = null;
 
-		this.googleHackFinanceProvider = 'https://www.google.fr/async/finance_price_updates?dfsl=1&async=lang:fr,country:fr,rmids:%2Fg%2F1hbvm6lxm,_fmt:jspb&ei=rM4LV9XhAcG6arSluYgO&yv=2';
+		this.googleHackFinanceProvider = 'https://www.google.fr/async/finance_price_updates?dfsl=1&async=lang:us,country:fr,rmids:%2Fg%2F1hbvm6lxm,_fmt:jspb&ei=rM4LV9XhAcG6arSluYgO&yv=2';
 		
 		this.financeData = {
 			shareName:'',
@@ -288,7 +288,7 @@
 	
 	WeShareOp.prototype.getPriceUpdates = function(_callback){
 		var that = this;
-
+		/*
 		this.getRealTimeFinancialData()
 			.then(_financialData=>{
 				console.log(_financialData);
@@ -304,11 +304,16 @@
 				console.log('error : parse realtime financial data',_e);
 				return null;
 			});
-		/*
+		//*/
+		//*
 		this.getFinanceData(function(_financeData){
 			//console.log(that);
 			that.financeData.shareName = _financeData.PriceUpdates[0][0][2];
-			that.financeData.date = _financeData.PriceUpdates[0][0][3];
+			//that.financeData.date = _financeData.PriceUpdates[0][0][3];
+            that.financeData.date = moment(new Date(_financeData.PriceUpdates[0][0][3]))
+				.year(moment().year())
+				.format();
+
 			//that.financeData.value = _financeData.PriceUpdates[0][0][1][0];
 			that.financeData.value = _financeData.PriceUpdates[0][0][1][8][1];
 			that.financeData.changePoint = _financeData.PriceUpdates[0][0][1][1];
