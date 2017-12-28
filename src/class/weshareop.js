@@ -208,7 +208,7 @@
 	};
 
 	WeShareOp.prototype.loginOnAmundiTab = function(){
-
+/*
 	    var login = "function login(){"+
             "$.ajax({"+
                 "type: 'POST',"+
@@ -218,6 +218,16 @@
                 "data: JSON.stringify({username: '"+this.userData.amundiAccount.login+"', password: '"+this.userData.amundiAccount.pwd+"'}),"+
                 "success:function(){location.reload(true);}"+
             "});"+
+        "}";
+//*/
+        var login = "function login(){"+
+            "window.fetch('https://www.amundi-ee.com/psf/authenticate', {"+
+                "credentials: 'same-origin',"+
+                "method: 'POST',"+
+                "headers: {"+
+                    "'Content-Type': 'application/json; charset=utf-8'"+
+                "},body: JSON.stringify({username: '"+this.userData.amundiAccount.login+"', password: '"+this.userData.amundiAccount.pwd+"'}),"+
+            "}).then(function(){location.reload(true);});"+
         "}";
 
 		chrome.tabs.executeScript(this.amundiTabId, {
